@@ -1,0 +1,1035 @@
+<template>
+  <div class="page">
+    <!-- left side  -->
+    <div class="left">
+      <div class="left-top"></div>
+      <div class="left-bottom">
+        <transition-group 
+        appear 
+        tag='ul'
+        @before-enter='sideBeforeEnter'
+        @enter='sideEnter'
+        >
+          <li v-for="(social, index) in socials" :key="social.name" :data-index='index'>
+            <a href="">{{ social.text }}</a>
+          </li>
+        </transition-group>
+      </div>
+    </div>
+    <div>
+
+
+      <!-- HOME  -->
+
+
+      <section class="home">
+        <img class="hero" :src="`./img/home.jpg`">
+        <div class="float">
+          <div class="left-content"></div>
+          <div class="middle">
+            <h1 class="home-header">Explore</h1>
+            
+            <span class="with">With</span>
+            
+            <h1 class="le" data-index='1'>Le Voyageur</h1>
+            
+            <div class="button__position">
+              <button class="button button-scale" data-index='2'>Start Traveling</button>
+            </div>
+
+            <h1 class="travel">travel</h1>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ABOUT  -->
+
+
+      <section class="about" id="about">
+        <div class="left-content"></div>
+        <div class="about-container">
+          
+          <img class="a-left-img" :src="`./img/about1.jpg`">
+          
+          <img class="a-right-img" :src="`./img/about2.jpg`">
+          
+          <div class="about-content">
+            <h2>Le Voyageur</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero placeat, repudiandae facere reprehenderit maxime at commodi quo cum laboriosam? Soluta!</p>
+            <h1>about</h1>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- JOURNEY -->
+
+
+      <section class="journey" id="journey">
+        <!-- first page  -->
+        <div class="j-first-container">
+          <h1>Our Experiences</h1>
+          <div class="j-middle-container">
+            <img class="j-left-img" :src="`./img/experience1.jpg`">
+            <img class="j-right-img" :src="`./img/experience2.jpg`">
+          </div>
+          <div class="j-bottom-container">
+            <div class="j-bottom-left-container">
+              <h2>5</h2>
+              <h5>Years of Experience</h5>
+            </div>
+            <div class="j-bottom-right-container">
+              <h2>20+</h2>
+              <h5>Tourist Destinations</h5>
+            </div>
+          </div>
+        </div>
+        <!-- second page  -->
+        <div class="j-second-container">
+          <div class="j-second-left-container">
+            <h1>Discover Our Journey</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam nam magnam praesentium, explicabo adipisci.</p>
+            <button class="button button-journey button-scale">View More</button>
+          </div>
+          <div class="j-second-right-container">
+            <div class="blue-square">
+              <img class="journey__img" :src="`./img/journey.jpg`" alt="">
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- EXPLORE  -->
+
+
+      <section class="explore" id="explore">
+        <div class="first-explore-content">
+          <div class="header-explore">
+            <h1>Choose Your Places</h1>
+          </div>
+          <div class="content-explore">
+            <div class="content-explore-flex">
+              <div v-for="(place, index) in places" :key="index" :class="isOdd(index) ? 'rectangle bottom' : 'rectangle'">
+
+                <img class="explore-img" :src="`${place.img}`">
+                <span class="star">
+                  <span class="material-icons star-size">star</span>
+                  {{ place.star }}
+                  </span>
+                <div class="bottom-rectangle-area">
+                  <h2 class="location">{{ place.location }}</h2>
+                  <h6 class="area">{{ place.area }}</h6>
+                  <div class="bottom-area">
+                    <div class="bottom-area-left">
+                      <h6>
+                        <span class="material-icons header">attach_money</span>
+                      </h6>
+                      <h6>Rp. {{ place.price }} jt</h6>
+                    </div>
+                    <div class="bottom-area-right">
+                      <h6>
+                        <span class="material-icons header">today</span>
+                      </h6>
+                      <h6>{{ place.day }} days</h6>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- second  -->
+        <div class="second-explore-content">
+          <h1>Our Awesome Tours</h1>
+          <div class="calendar">
+            <div class="tour-card" v-for="(act, index) in calendar" :key="index">
+              <h2 class="date">{{ act.date }}</h2>
+              <h3 class="month">{{ act.month }} <br> {{ act.year }}</h3>
+              <button class="button button-scale btn-explore">{{ act.activity }}</button><br>
+              <span class="span-detail">{{ act.detail }}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- CONTACT  -->
+
+      <section class="contact" id="contact">
+        <div class="contact-container">
+          <h1 class="contact-title">Subscribe Our</h1>
+          <h1 class="contact-title">Newsletter</h1>
+          <p class="contact-subheading">Fing out our newest event and get a special discount</p>
+          <div>
+            <input type="text" class="email" placeholder="Enter Email...">
+            <button class="button button-scale btn-subscribe">Subscribe</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</template>
+
+
+
+<script>
+import gsap from 'gsap'
+import { ref } from '@vue/reactivity'
+// @ is an alias to /src
+
+export default {
+  name: 'Home',
+  setup(){
+    const socials = ref([
+      {name: 'linkedin', text: 'In', link: '/'},
+      {name: 'facebook', text: 'Fb', link: '/'},
+      {name: 'youtube', text: 'Yt', link: '/'},
+    ])
+
+    const calendar = ref([
+      {date: 31, month: 'January', year: 2020, activity: 'Camping', detail: 'Camping on Mount Putri'},
+      {date: 1, month: 'February', year: 2020, activity: 'Camping', detail: 'Camping on Mount Putri'},
+      {date: 4, month: 'February', year: 2020, activity: 'Hiking', detail: 'Hiking on Bukit Bintang'},
+      {date: 15, month: 'February', year: 2020, activity: 'Hiking', detail: 'Hiking on Papandaian'},
+      {date: 25, month: 'February', year: 2020, activity: 'Diving', detail: 'Diving in Bali'},
+      {date: 26, month: 'February', year: 2020, activity: 'Snorkeling', detail: 'Snorkeling in Legian'},
+      {date: 27, month: 'February', year: 2020, activity: 'Surfing', detail: 'Surfing in Canggu'},
+      {date: 28, month: 'February', year: 2020, activity: 'Body Rafting', detail: 'Body Rafting'},
+      {date: 10, month: 'March', year: 2020, activity: 'Swimming', detail: 'Masigit Waterfall'},
+      {date: 19, month: 'March', year: 2020, activity: 'Hiking', detail: 'Hiking in Lembang'},
+    ])
+
+    const places = ref([
+      {img: './img/uluwatu.jpg', star: 5.0, location:'Bali', area:'Uluwatu', price:3.5, day:3},
+      {img: './img/ulun-danu.jpg', star: 4.5, location:'Bali', area:'Ulun Danu Temple', price:4, day:4},
+      {img: './img/kelingking-beach.jpg', star: 5.0, location:'Bali', area:'Kelingking Beach', price:5.5, day:3},
+      {img: './img/sadim.jpg', star: 5.0, location:'Bandung', area:'Curug Sadim', price:2, day:2},
+      {img: './img/bromo.jpg', star: 4.5, location:'Tengger Semeru', area:'Gunung Bromo', price:3, day:2},
+    ])
+
+    function isOdd(index){
+      return (index+1) % 2 == 0 ? true:false
+    }
+
+    // TRANSITION!!! 
+
+    // EXPLORE 
+    const sideBeforeEnter = (el) => {
+      el.style.opacity = 0
+      el.style.transform = 'translateY(-80px)'
+    }
+    const sideEnter = (el, done) => {
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+      })
+    }
+
+  
+    return { 
+      socials, calendar, places,
+      isOdd,
+      sideBeforeEnter, sideEnter
+     }
+  },
+}
+</script>
+
+
+
+<style lang="scss" scoped>
+.gr {
+  font-family: gr;
+}
+
+
+// HOME ------------------------------------------------------------------
+.hero
+{
+  height: 100vh;
+  width: 100%;
+}
+
+.home {
+  position: relative;
+}
+
+.float
+{
+  display: flex;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  letter-spacing: 2px;
+}
+
+.left-content
+{
+  flex: 1;
+  top: 0;
+  width: 100%;
+  flex-direction: column;
+}
+
+.middle
+{
+  flex: 11;
+  position: relative;
+}
+
+.home-header
+{
+  font-family: gr;
+  color: white;
+  font-size: 9rem;
+  position: absolute;
+  top: 25%;
+  left: 28.5%;
+}
+
+.middle .with
+{
+  color: white;
+  position: absolute;
+  top: 60%;
+  left: 45%;
+  letter-spacing: 1px;
+}
+
+.middle .le
+{
+  font-family: gr;
+  color: white;
+  font-size: 7rem;
+  position: absolute;
+  top: 64%;
+  left: 48.5%;
+}
+
+.button__position
+{
+  position: absolute;
+  top: 84%;
+  left: 66%;
+}
+
+.button
+{
+  font-family: 'Nunito';
+  letter-spacing: 1px;
+  font-size: .9rem;
+  font-weight: 700;
+  background: transparent;
+  border: 3px solid #ffd400 ;
+  color: white;
+  padding: .5rem 1rem; 
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.button::after
+{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba($color: #ffd400, $alpha: .9);
+  z-index: -1;
+  transition: transform 400ms ease;
+}
+
+.button-scale::after
+{
+  transform: scaleX(0);
+  transform-origin: right;
+}
+
+.button-scale:hover::after
+{
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+// .button-home:hover
+// 
+//  background: #ffd400;
+//  border: 3px solid #ffd400;
+//  color: white;
+// 
+
+.travel
+{
+  position: absolute;
+  bottom: -5.5%;
+  right: 80;
+  color: transparent;
+  font-size: 8rem;
+  font-weight: 900;
+  -webkit-text-stroke-width: .7px;
+  -webkit-text-stroke-color: white;
+  opacity: 4%;
+  text-transform: uppercase;
+  cursor: default;
+}
+
+section {
+  height: 100vh;
+  width: 100%;
+  background: #091e21;
+}
+
+.left {
+  position: fixed;
+  width: 8.3%;
+  height: 100%;
+  // background: green;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  z-index: 2;
+}
+
+.left-top
+{
+  flex: 2;
+}
+
+.left-bottom
+{
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.left-bottom ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.left-bottom li 
+{
+  list-style: none;
+  margin: 0 auto;
+}
+
+.left-bottom a
+{
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+
+
+// ABOUT ------------------------------------------------------------------
+.about
+{
+  width: 100%;
+  display: flex;
+  
+}
+
+.about-container
+{
+  flex: 11;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.2rem;
+  position: relative;
+}
+
+.a-left-img
+{
+  height: 32rem;
+  width: 17rem;
+  transition: transform .4s ease;
+}
+
+.a-left-img:hover 
+{
+  transform: scale(1.03);
+}
+
+.a-right-img
+{
+  height: 25rem;
+  width: 14rem;
+  transition: transform .4s ease;
+}
+
+.a-right-img:hover 
+{
+  transform: scale(1.03);
+}
+
+.about-content
+{
+  margin-right: 10rem;
+  margin-left: 2rem;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  color: white;
+  gap: .8rem;
+  // background-color: red;
+}
+
+.about-content h2 
+{
+  font-size: 2.4rem;
+  font-weight: 800;
+  position: relative;
+}
+
+.about-content h2::after 
+{
+  position: absolute;
+  content: '';
+  left: 0;
+  bottom: 0;
+  width: 30%;
+  height: 3px;
+  background-color: #ffd400;
+}
+
+.about-content p {
+  text-align: left;
+  letter-spacing: .8px;
+}
+
+.about-content h1
+{
+  position: absolute;
+  bottom: -37px;
+  left: 42%;
+  color: transparent;
+  font-size: 8rem;
+  font-weight: 900;
+  -webkit-text-stroke-width: .7px;
+  -webkit-text-stroke-color: white;
+  opacity: 5%;
+  text-transform: uppercase;
+  cursor: default;
+}
+
+
+
+// JOURNEY ------------------------------------------------------------------
+.journey 
+{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  // background-color: blue;
+  height: 200vh;
+}
+
+.j-first-container
+{
+  flex: 2;
+  // background: red; 
+  height: 40rem;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.j-first-container h1 
+{
+  flex: 1;
+  color: white;
+  font-size: 2.4rem;
+  margin-top: 3.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.j-first-container h1::after 
+{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 40%;
+  height: 3px;
+  width: 25%;
+  background-color: #ffd400;
+}
+
+.j-middle-container
+{
+  flex: 6;
+  width: 70%;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.j-left-img
+{
+  position: absolute;
+  left: 0;
+  bottom: -3rem;
+  height: 20rem;
+  width: 16rem;
+  z-index: 10;
+  transition: transform .4s ease;
+}
+
+.j-left-img:hover
+{
+  transform: scale(1.03);
+}
+
+.j-right-img
+{
+  height: 21rem;
+  width: 35rem;
+  transition: transform .4s ease;
+}
+
+.j-right-img:hover
+{
+  transform: scale(1.03);
+}
+
+.j-bottom-container
+{
+  flex: 2;
+  margin-top: 2rem;
+}
+
+.j-bottom-container
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; 
+}
+
+.j-bottom-container h2, h5
+{
+  text-align: left;
+}
+
+.j-bottom-container h2 
+{
+  margin: .7rem 0;
+}
+
+.j-bottom-container h5 
+{
+  letter-spacing: .8px;
+}
+
+.j-bottom-left-container
+{
+  width: 40%;
+}
+
+.j-bottom-right-container
+{
+  width: 40%;
+}
+
+// second 
+.j-second-container
+{
+  flex: 1;
+  height: 100vh;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  margin: 110px 0;
+}
+
+.j-second-left-container
+{
+  flex: 5;
+}
+
+.j-second-left-container h1 
+{
+  color: white;
+  font-size: 2.4rem;
+  margin-top: 3.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.j-second-left-container h1::after 
+{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 15%;
+  background-color: #ffd400;
+}
+
+.j-second-left-container p 
+{
+  color: white;
+  letter-spacing: .8px; 
+}
+
+.button-journey
+{
+  margin-top: 20px;
+}
+
+
+// .button-journey:hover
+// 
+//   background: #ffd400;
+//   border: 3px solid #ffd400;
+//   color: white;
+// 
+
+.j-second-right-container
+{
+  flex: 6;
+  display: flex;
+  align-items: center;
+}
+
+.blue-square
+{
+  height: 30rem;
+  width: 27rem;
+  background: #0e2a2f; 
+  position: relative;
+}
+
+.journey__img
+{
+  position: absolute;
+  left: 1.2rem;
+  top: 1.2rem;
+  height: calc(30rem - 2.4rem);
+  width: 36.5rem;
+  transition: transform 0.4s ease;
+}
+
+.journey__img:hover
+{
+  transform: scale(1.03);
+}
+
+
+// EXPLORE ----------------------------------------------------------------------------------
+.explore 
+{
+  // padding-top: 2rem;
+  height: 200vh;
+}
+
+.first-explore-content
+{
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+}
+
+.header-explore
+{
+  margin: 3.5rem auto 1.8rem;
+}
+
+.header-explore h1 
+{
+  color: white;
+  font-size: 2.4rem;
+  position: relative;
+}
+
+.header-explore h1::after 
+{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 3px;
+  width: 20%;
+  background-color: #ffd400;
+}
+
+.content-explore
+{
+  align-self: center;
+  width: 84%;
+}
+
+.content-explore-flex
+{
+  display: flex;
+  height: 78vh;
+  gap: 25px;
+}
+
+.rectangle
+{
+  height: 29rem;
+  width: 15rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.rectangle:hover > .explore-img,
+.rectangle:hover > .bottom-rectangle-area,
+.rectangle:hover > .star 
+{
+  transform: scale(1.03)
+}
+
+.rectangle:hover > .bottom-rectangle-area,
+.rectangle:hover > .star
+{
+  opacity: 1;
+}
+
+.bottom 
+{
+  align-self: flex-end;
+}
+
+.explore-img
+{
+  width: 100%;
+  height: 29rem;
+  transition: all 400ms ease;
+}
+
+// .float-img 
+// {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   display: flex; 
+//   transition: all 400ms ease;
+//   opacity: 0;
+// }
+
+.float-img 
+{
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.star 
+{
+  position: absolute;
+  top: .6rem;
+  right: .6rem;
+  color: white;
+  opacity: 0;
+}
+
+.star-size
+{
+  font-size: .9rem;
+  font-weight: 400;
+}
+
+.bottom-rectangle-area
+{
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: auto;
+  padding: 1.5rem;
+  background: linear-gradient(
+    hsla(0, 0%, 0%, 0),
+    hsla(0, 0%, 0%, .6) 10%,
+    hsla(0, 0%, 0%, 1)
+  );
+  color: white;
+  transition: all 400ms ease;
+  opacity: 0;
+}
+
+.location 
+{
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.area 
+{
+  font-size: .9rem;
+  font-weight: 400;
+  letter-spacing: .5px;
+}
+
+.bottom-area 
+{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.bottom-area .header
+{
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.bottom-area h6
+{
+  font-size: .9rem;
+  font-weight: 400;
+}
+
+
+// EXPLORE PART TWO ------------------
+
+.second-explore-content
+{
+  height: 50%;
+  padding-top: 7rem;
+  margin: 0 7rem;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.second-explore-content h1 
+{
+  flex: 1;
+  color: white;
+  font-size: 2.4rem;
+  position: relative;
+  margin: .5rem 0;
+  align-self: flex-start;
+}
+
+.second-explore-content h1::after 
+{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 18%;
+  background-color: #ffd400;
+}
+
+.calendar
+{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-auto-flow: row;
+  flex-grow: 1;
+}
+
+.tour-card
+{
+  height: 100%;
+  width: 100%;
+  padding: 2rem 3rem 1rem 1rem;
+  border: .5px solid #1c353a;
+}
+
+.date 
+{
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.month 
+{
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.btn-explore
+{
+  font-size: 1rem;
+  font-weight: 700; 
+  margin: 20px 0;
+  transform: translateX(-1rem);
+}
+
+.span-detail
+{
+  font-size: .8rem;
+  letter-spacing: .5px;
+  font-weight: 400;
+}
+
+// CONTACT ----------------------------------------------
+
+.contact
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-container 
+{
+  height: 40vh;
+  width: 60%;
+  background: #0e2a2f;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-title
+{
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.contact-subheading 
+{
+  margin: 1.5rem 0;
+  font-size: .9rem;
+}
+
+.email 
+{
+  height: 2.5rem;
+  width: 16rem;
+  background: #1c353a;
+  color: white;
+  border: none;
+  padding: .7rem;
+}
+
+.email:focus
+{
+  outline: none;
+}
+
+.btn-subscribe 
+{
+  font-weight: 600;
+  padding: .4rem 1rem; 
+  margin: 20px 0;
+}
+</style>
