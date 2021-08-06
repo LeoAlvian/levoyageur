@@ -23,15 +23,15 @@
 
 
       <section class="home">
-        <img class="hero" :src="`./img/home.jpg`">
+        <img class="hero-img" :src="`./img/home.jpg`">
         <div class="float">
           <div class="left-content"></div>
           <div class="middle">
-            <h1 class="home-header">Explore</h1>
+            <h1 class="font-gr home-header">Explore</h1>
             
             <span class="with">With</span>
             
-            <h1 class="le" data-index='1'>Le Voyageur</h1>
+            <h1 class="font-gr le" data-index='1'>Le Voyageur</h1>
             
             <div class="button__position">
               <button class="button button-scale" data-index='2'>Start Traveling</button>
@@ -50,12 +50,13 @@
         <div class="left-content"></div>
         <div class="about-container">
           
-          <img class="a-left-img" :src="`./img/about1.jpg`">
+          <img class="img a-left" :src="`./img/about1.jpg`">
           
-          <img class="a-right-img" :src="`./img/about2.jpg`">
+          <img class="img a-right" :src="`./img/about2.jpg`">
           
           <div class="about-content">
             <h2>Le Voyageur</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero placeat, repudiandae facere reprehenderit maxime at commodi quo cum laboriosam? Soluta!</p>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero placeat, repudiandae facere reprehenderit maxime at commodi quo cum laboriosam? Soluta!</p>
             <h1>about</h1>
           </div>
@@ -71,8 +72,8 @@
         <div class="j-first-container">
           <h1>Our Experiences</h1>
           <div class="j-middle-container">
-            <img class="j-left-img" :src="`./img/experience1.jpg`">
-            <img class="j-right-img" :src="`./img/experience2.jpg`">
+            <img class="img j-left-img" :src="`./img/experience1.jpg`">
+            <img class="img j-right-img" :src="`./img/experience2.jpg`">
           </div>
           <div class="j-bottom-container">
             <div class="j-bottom-left-container">
@@ -94,7 +95,7 @@
           </div>
           <div class="j-second-right-container">
             <div class="blue-square">
-              <img class="journey__img" :src="`./img/journey.jpg`" alt="">
+              <img class="img journey__img" :src="`./img/journey.jpg`" alt="">
             </div>
           </div>
         </div>
@@ -141,7 +142,7 @@
             </div>
           </div>
         </div>
-        <!-- second  -->
+        <!-- PART TWO  -->
         <div class="second-explore-content">
           <h1>Our Awesome Tours</h1>
           <div class="calendar">
@@ -246,9 +247,59 @@ export default {
   font-family: gr;
 }
 
+section {
+  height: 100vh;
+  width: 100%;
+  background: #091e21;
+}
+
+// ----------------------------- LEFT SIDE ------------------------------------- 
+.left {
+  position: fixed;
+  width: 8.3%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  z-index: 2;
+}
+
+.left-top
+{
+  flex: 2;
+}
+
+.left-bottom
+{
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.left-bottom ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.left-bottom li 
+{
+  list-style: none;
+  margin: 0 auto;
+}
+
+.left-bottom a
+{
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+}
 
 // HOME ------------------------------------------------------------------
-.hero
+.hero-img
 {
   height: 100vh;
   width: 100%;
@@ -283,41 +334,20 @@ export default {
   position: relative;
 }
 
-.home-header
+.font-gr
 {
   font-family: gr;
   color: white;
-  font-size: 9rem;
   position: absolute;
-  top: 25%;
-  left: 28.5%;
 }
 
-.middle .with
-{
-  color: white;
-  position: absolute;
-  top: 60%;
-  left: 45%;
-  letter-spacing: 1px;
-}
+.with
+  {
+    color: white;
+    position: absolute;
+    letter-spacing: 1px;
+  }
 
-.middle .le
-{
-  font-family: gr;
-  color: white;
-  font-size: 7rem;
-  position: absolute;
-  top: 64%;
-  left: 48.5%;
-}
-
-.button__position
-{
-  position: absolute;
-  top: 84%;
-  left: 66%;
-}
 
 .button
 {
@@ -359,79 +389,6 @@ export default {
   transform-origin: left;
 }
 
-// .button-home:hover
-// 
-//  background: #ffd400;
-//  border: 3px solid #ffd400;
-//  color: white;
-// 
-
-.travel
-{
-  position: absolute;
-  bottom: -5.5%;
-  right: 80;
-  color: transparent;
-  font-size: 8rem;
-  font-weight: 900;
-  -webkit-text-stroke-width: .7px;
-  -webkit-text-stroke-color: white;
-  opacity: 4%;
-  text-transform: uppercase;
-  cursor: default;
-}
-
-section {
-  height: 100vh;
-  width: 100%;
-  background: #091e21;
-}
-
-.left {
-  position: fixed;
-  width: 8.3%;
-  height: 100%;
-  // background: green;
-  display: flex;
-  flex-direction: column;
-  color: white;
-  z-index: 2;
-}
-
-.left-top
-{
-  flex: 2;
-}
-
-.left-bottom
-{
-  flex: 1;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.left-bottom ul {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  width: 100%;
-}
-
-.left-bottom li 
-{
-  list-style: none;
-  margin: 0 auto;
-}
-
-.left-bottom a
-{
-  color: white;
-  text-decoration: none;
-  cursor: pointer;
-  text-align: center;
-}
-
 
 
 // ABOUT ------------------------------------------------------------------
@@ -439,59 +396,37 @@ section {
 {
   width: 100%;
   display: flex;
-  
-}
+  }
 
-.about-container
+.img
 {
-  flex: 11;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1.2rem;
-  position: relative;
+  transition: transform .4s ease;
 }
 
-.a-left-img
+.img:hover
+{
+  transform: scale(1.03);
+}
+
+.a-left
 {
   height: 32rem;
   width: 17rem;
-  transition: transform .4s ease;
 }
 
-.a-left-img:hover 
-{
-  transform: scale(1.03);
-}
-
-.a-right-img
+.a-right
 {
   height: 25rem;
   width: 14rem;
-  transition: transform .4s ease;
-}
-
-.a-right-img:hover 
-{
-  transform: scale(1.03);
 }
 
 .about-content
-{
-  margin-right: 10rem;
-  margin-left: 2rem;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  color: white;
-  gap: .8rem;
-  // background-color: red;
-}
+  {
+    color: white;
+  }
 
 .about-content h2 
 {
-  font-size: 2.4rem;
-  font-weight: 800;
   position: relative;
 }
 
@@ -511,21 +446,6 @@ section {
   letter-spacing: .8px;
 }
 
-.about-content h1
-{
-  position: absolute;
-  bottom: -37px;
-  left: 42%;
-  color: transparent;
-  font-size: 8rem;
-  font-weight: 900;
-  -webkit-text-stroke-width: .7px;
-  -webkit-text-stroke-color: white;
-  opacity: 5%;
-  text-transform: uppercase;
-  cursor: default;
-}
-
 
 
 // JOURNEY ------------------------------------------------------------------
@@ -538,24 +458,10 @@ section {
   height: 200vh;
 }
 
-.j-first-container
-{
-  flex: 2;
-  // background: red; 
-  height: 40rem;
-  width: 80%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
 .j-first-container h1 
 {
   flex: 1;
   color: white;
-  font-size: 2.4rem;
-  margin-top: 3.5rem;
-  margin-bottom: 1.5rem;
   position: relative;
 }
 
@@ -564,7 +470,6 @@ section {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 40%;
   height: 3px;
   width: 25%;
   background-color: #ffd400;
@@ -573,7 +478,7 @@ section {
 .j-middle-container
 {
   flex: 6;
-  width: 70%;
+  width: 100%;
   position: relative;
   display: flex;
   justify-content: flex-end;
@@ -582,35 +487,7 @@ section {
 .j-left-img
 {
   position: absolute;
-  left: 0;
-  bottom: -3rem;
-  height: 20rem;
-  width: 16rem;
-  z-index: 10;
-  transition: transform .4s ease;
-}
-
-.j-left-img:hover
-{
-  transform: scale(1.03);
-}
-
-.j-right-img
-{
-  height: 21rem;
-  width: 35rem;
-  transition: transform .4s ease;
-}
-
-.j-right-img:hover
-{
-  transform: scale(1.03);
-}
-
-.j-bottom-container
-{
-  flex: 2;
-  margin-top: 2rem;
+  z-index: 2;
 }
 
 .j-bottom-container
@@ -626,21 +503,12 @@ section {
   text-align: left;
 }
 
-.j-bottom-container h2 
-{
-  margin: .7rem 0;
-}
-
 .j-bottom-container h5 
 {
   letter-spacing: .8px;
 }
 
-.j-bottom-left-container
-{
-  width: 40%;
-}
-
+.j-bottom-left-container,
 .j-bottom-right-container
 {
   width: 40%;
@@ -650,24 +518,19 @@ section {
 .j-second-container
 {
   flex: 1;
-  height: 100vh;
   width: 80%;
   display: flex;
-  align-items: center;
-  margin: 110px 0;
 }
 
 .j-second-left-container
 {
   flex: 5;
+  padding-right: 2rem;
 }
 
 .j-second-left-container h1 
 {
   color: white;
-  font-size: 2.4rem;
-  margin-top: 3.5rem;
-  margin-bottom: 1rem;
   position: relative;
 }
 
@@ -693,14 +556,6 @@ section {
   margin-top: 20px;
 }
 
-
-// .button-journey:hover
-// 
-//   background: #ffd400;
-//   border: 3px solid #ffd400;
-//   color: white;
-// 
-
 .j-second-right-container
 {
   flex: 6;
@@ -710,8 +565,6 @@ section {
 
 .blue-square
 {
-  height: 30rem;
-  width: 27rem;
   background: #0e2a2f; 
   position: relative;
 }
@@ -721,71 +574,13 @@ section {
   position: absolute;
   left: 1.2rem;
   top: 1.2rem;
-  height: calc(30rem - 2.4rem);
-  width: 36.5rem;
-  transition: transform 0.4s ease;
-}
-
-.journey__img:hover
-{
-  transform: scale(1.03);
 }
 
 
 // EXPLORE ----------------------------------------------------------------------------------
-.explore 
-{
-  // padding-top: 2rem;
-  height: 200vh;
-}
-
-.first-explore-content
-{
-  display: flex;
-  flex-direction: column;
-  height: 50%;
-}
-
-.header-explore
-{
-  margin: 3.5rem auto 1.8rem;
-}
-
-.header-explore h1 
-{
-  color: white;
-  font-size: 2.4rem;
-  position: relative;
-}
-
-.header-explore h1::after 
-{
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  height: 3px;
-  width: 20%;
-  background-color: #ffd400;
-}
-
-.content-explore
-{
-  align-self: center;
-  width: 84%;
-}
-
-.content-explore-flex
-{
-  display: flex;
-  height: 78vh;
-  gap: 25px;
-}
 
 .rectangle
 {
-  height: 29rem;
-  width: 15rem;
   position: relative;
   cursor: pointer;
 }
@@ -810,22 +605,8 @@ section {
 
 .explore-img
 {
-  width: 100%;
-  height: 29rem;
   transition: all 400ms ease;
 }
-
-// .float-img 
-// {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   display: flex; 
-//   transition: all 400ms ease;
-//   opacity: 0;
-// }
 
 .float-img 
 {
@@ -841,12 +622,14 @@ section {
   right: .6rem;
   color: white;
   opacity: 0;
+  display: flex;
+  align-items: center;
+  gap: .2rem;
 }
 
 .star-size
 {
-  font-size: .9rem;
-  font-weight: 400;
+  
 }
 
 .bottom-rectangle-area
@@ -869,114 +652,34 @@ section {
 
 .location 
 {
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: 1px;
+  
 }
 
 .area 
 {
-  font-size: .9rem;
-  font-weight: 400;
-  letter-spacing: .5px;
+  
 }
 
 .bottom-area 
 {
   display: flex;
   justify-content: space-between;
-  margin-top: 1rem;
 }
 
 .bottom-area .header
 {
-  font-size: 1.4rem;
-  font-weight: 400;
+
 }
 
 .bottom-area h6
 {
-  font-size: .9rem;
-  font-weight: 400;
+  
 }
 
 
 // EXPLORE PART TWO ------------------
 
-.second-explore-content
-{
-  height: 50%;
-  padding-top: 7rem;
-  margin: 0 7rem;
-  display: flex;
-  flex-direction: column;
-  color: white;
-}
 
-.second-explore-content h1 
-{
-  flex: 1;
-  color: white;
-  font-size: 2.4rem;
-  position: relative;
-  margin: .5rem 0;
-  align-self: flex-start;
-}
-
-.second-explore-content h1::after 
-{
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 3px;
-  width: 18%;
-  background-color: #ffd400;
-}
-
-.calendar
-{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-auto-flow: row;
-  flex-grow: 1;
-}
-
-.tour-card
-{
-  height: 100%;
-  width: 100%;
-  padding: 2rem 3rem 1rem 1rem;
-  border: .5px solid #1c353a;
-}
-
-.date 
-{
-  font-size: 1.1rem;
-  font-weight: 800;
-}
-
-.month 
-{
-  font-size: .9rem;
-  font-weight: 700;
-}
-
-.btn-explore
-{
-  font-size: 1rem;
-  font-weight: 700; 
-  margin: 20px 0;
-  transform: translateX(-1rem);
-}
-
-.span-detail
-{
-  font-size: .8rem;
-  letter-spacing: .5px;
-  font-weight: 400;
-}
 
 // CONTACT ----------------------------------------------
 
@@ -989,8 +692,6 @@ section {
 
 .contact-container 
 {
-  height: 40vh;
-  width: 60%;
   background: #0e2a2f;
   color: white;
   display: flex;
@@ -1001,14 +702,12 @@ section {
 
 .contact-title
 {
-  font-size: 2rem;
-  font-weight: 400;
+
 }
 
 .contact-subheading 
 {
-  margin: 1.5rem 0;
-  font-size: .9rem;
+  
 }
 
 .email 
@@ -1028,8 +727,599 @@ section {
 
 .btn-subscribe 
 {
-  font-weight: 600;
-  padding: .4rem 1rem; 
-  margin: 20px 0;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and(max-width: 425px){
+  .hero-img
+  {
+    object-fit: cover;
+  }
+
+  .left
+  {
+    width: 18%;
+  }
+
+  // =========================== HOME ========================= 
+  .home-header
+  {
+    font-size: 6rem;
+    top: 25%;
+    left: 10%;
+  }
+
+  .with
+  {
+    top: 60%;
+    left: 45%;
+  }
+
+  .le
+  {
+    font-size: 4rem;
+    top: 64%;
+    left: 10%;
+  }
+
+  .button__position
+  {
+    position: absolute;
+    top: 84%;
+    left: 50%;
+  }
+
+  .button
+  {
+    transform: translateX(-50%);
+  }
+
+  // ================================ ABOUT =========================== 
+  .about-container
+  {
+    flex: 5;
+    display: grid;
+    position: relative;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "detail detail"
+      "img-left img-right";
+  }
+
+  .a-left {
+    grid-area: img-left;
+    height: 17rem;
+    width: 10rem;
+  }
+  .a-right {
+    grid-area: img-right;
+    height: 15rem;
+    width: 8rem;
+    margin-top: 1.1rem;
+  }
+
+  .about-content {
+    grid-area: detail;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    padding-right: 10px;
+  }
+
+  .about-content h2 
+  {
+    font-size: 2rem;
+    font-weight: 800;
+  }
+
+  .about-content h1 
+  {
+    display: none;
+  }
+
+  // ======================== JOURNEY ============================== 
+  .journey
+  {
+    align-items: flex-end;
+  }
+  
+  .j-first-container
+  {
+    width: 80%;
+    padding-top: 7rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: max-content;
+    grid-template-areas: 
+      "jHeader jHeader"
+      "jDetail jDetail"
+      "imgContainer imgContainer";
+  }
+
+  .j-first-container h1
+  {
+    grid-area: jHeader;
+    font-size: 2rem;
+    font-weight: 800;
+    margin: auto;
+  }
+
+  .j-first-container h1::after
+  {
+    right: 0;
+  }
+
+  .j-middle-container
+  {
+    grid-area: imgContainer;
+    margin-bottom: 12rem;
+    padding-right: 2rem;
+  }
+
+  .j-left-img
+  {
+    left: 0;
+    bottom: -5rem;
+    height: 10rem;
+    width: 8rem;
+    z-index: 2;
+  }
+
+  .j-right-img
+  {
+    height: 12rem;
+    width: 18rem;
+  }
+
+  .j-bottom-container
+  {
+    grid-area: jDetail;
+    height: 8rem;
+    gap: 1rem;
+  }
+
+  .j-bottom-container h5 
+  {
+    font-weight: 400;
+  }
+
+  .j-bottom-left-container,
+  .j-bottom-right-container
+  {
+    width: 30%;
+  }
+
+}
+
+
+
+
+
+
+
+
+@media screen and(min-width: 780px){
+  .content-explore
+  {
+    
+  }
+  .content-explore-flex
+  {
+    flex-direction: column;
+    // gap: 0;
+  }
+
+  .about-content h1
+  {
+    display: none;
+  }
+
+  .second-explore-content
+  {
+    visibility: hidden;
+  }
+
+  .le
+  {
+    font-size: 12rem;
+    top: 64%;
+    left: 48.5%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+@media screen and(min-width: 1300px){
+
+  // ==================== HOME =========================== 
+  .home-header
+  {
+    font-size: 9rem;
+    top: 25%;
+    left: 28.5%;
+  }
+
+  .with
+  {
+    top: 60%;
+    left: 45%;
+  }
+
+  .le
+  {
+    font-size: 7rem;
+    top: 64%;
+    left: 48.5%;
+  }
+
+  .button__position
+  {
+    position: absolute;
+    top: 84%;
+    left: 66%;
+  }
+
+  .travel
+  {
+    position: absolute;
+    bottom: -5.5%;
+    right: 80;
+    color: transparent;
+    font-size: 8rem;
+    font-weight: 900;
+    -webkit-text-stroke-width: .7px;
+    -webkit-text-stroke-color: white;
+    opacity: 4%;
+    text-transform: uppercase;
+    cursor: default;
+  }
+
+
+  // =========================== ABOUT ============================= 
+  .about-container
+  {
+    flex: 11;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.2rem;
+    position: relative;
+  }
+
+  .about-content
+  {
+    margin-right: 10rem;
+    margin-left: 2rem;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: .8rem;
+  }
+
+  .about-content h2 
+  {
+    font-size: 2.4rem;
+    font-weight: 800;
+  }
+
+  .about-content h1
+  {
+    position: absolute;
+    bottom: -37px;
+    left: 42%;
+    color: transparent;
+    font-size: 8rem;
+    font-weight: 900;
+    -webkit-text-stroke-width: .7px;
+    -webkit-text-stroke-color: white;
+    opacity: 5%;
+    text-transform: uppercase;
+    cursor: default;
+  }
+
+
+  // =========================== JOURNEY ============================= 
+  .j-first-container
+  {
+    flex: 2;
+    width: 55%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .j-first-container h1 
+  {
+    font-size: 2.4rem;
+    margin-top: 3.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .j-first-container h1::after
+  {
+    left: 40%;
+  }
+
+  .j-left-img
+  {
+    left: 0;
+    bottom: -3rem;
+    height: 20rem;
+    width: 16rem;
+    z-index: 2;
+  }
+
+  .j-right-img
+  {
+    height: 21rem;
+    width: 35rem;
+  }
+
+  .j-bottom-container
+  {
+    flex: 2;
+    margin-top: 2.5rem;
+  }
+
+  .j-bottom-container h2 
+  {
+    margin: .7rem 0;
+  }
+
+
+  // ====== JOURNEY PART TWO ====== 
+  .j-second-container
+  {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    margin: 110px 0;
+    align-items: center;
+  }
+
+  .j-second-left-container h1 
+  {
+    font-size: 2.4rem;
+    margin-top: 3.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .blue-square
+  {
+    height: 30rem;
+    width: 27rem;
+  }
+
+  .journey__img
+  {
+    height: calc(30rem - 2.4rem);
+    width: 36rem;
+  }
+
+
+  // ============================ EXPLORE ================================ 
+  .explore 
+  {
+    height: 200vh;
+  }
+
+  .first-explore-content
+  {
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+  }
+
+  .header-explore
+  {
+    margin: 3.5rem auto 1.8rem;
+  }
+
+  .header-explore h1 
+  {
+    color: white;
+    font-size: 2.4rem;
+    position: relative;
+  }
+
+  .header-explore h1::after 
+  {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 3px;
+    width: 20%;
+    background-color: #ffd400;
+  }
+
+  .content-explore
+  {
+    align-self: center;
+    width: 84%;
+  }
+
+  .content-explore-flex
+  {
+    display: flex;
+    flex-direction: row;
+    height: 78vh;
+    gap: 25px;
+  }
+
+  .rectangle
+  {
+    height: 29rem;
+    width: 15rem;
+  }
+
+  .explore-img
+  {
+    width: 100%;
+    height: 29rem;
+  }
+
+  .star-size
+  {
+    font-size: .9rem;
+    font-weight: 400;
+  }
+
+  .location 
+  {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+  }
+
+  .area 
+  {
+    font-size: .9rem;
+    font-weight: 400;
+    letter-spacing: .5px;
+  }
+
+  .bottom-area 
+  {
+    margin-top: 1rem;
+  }
+
+  .bottom-area .header
+  {
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+
+  .bottom-area h6
+  {
+    font-size: .9rem;
+    font-weight: 400;
+  }
+
+  // ===== EXPLORE PART TWO ====== 
+  .second-explore-content
+  {
+    height: 50%;
+    padding-top: 7rem;
+    margin: 0 7rem;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    visibility: visible;
+  }
+
+  .second-explore-content h1 
+  {
+    flex: 1;
+    color: white;
+    font-size: 2.4rem;
+    position: relative;
+    margin: .5rem 0;
+    align-self: flex-start;
+  }
+
+  .second-explore-content h1::after 
+  {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 18%;
+    background-color: #ffd400;
+  }
+
+  .calendar
+  {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-auto-flow: row;
+    flex-grow: 1;
+  }
+
+  .tour-card
+  {
+    height: 100%;
+    width: 100%;
+    padding: 2rem 3rem 1rem 1rem;
+    border: .5px solid #1c353a;
+  }
+
+  .date 
+  {
+    font-size: 1.1rem;
+    font-weight: 800;
+  }
+
+  .month 
+  {
+    font-size: .9rem;
+    font-weight: 700;
+  }
+
+  .btn-explore
+  {
+    font-size: 1rem;
+    font-weight: 700; 
+    margin: 20px 0;
+    transform: translateX(-1rem);
+  }
+
+  .span-detail
+  {
+    font-size: .8rem;
+    letter-spacing: .5px;
+    font-weight: 400;
+  }
+
+
+  // =========================== CONTACT =========================== 
+
+  .contact-container 
+  {
+    height: 40vh;
+    width: 60%;
+  }
+
+  .contact-title
+  {
+    font-size: 2rem;
+    font-weight: 400;
+  }
+
+  .contact-subheading 
+  {
+    margin: 1.5rem 0;
+    font-size: .9rem;
+  }
+
+  .btn-subscribe 
+  {
+    font-weight: 600;
+    padding: .4rem 1rem; 
+    margin: 20px 0;
+  }
 }
 </style>

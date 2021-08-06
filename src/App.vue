@@ -1,21 +1,32 @@
 <template>
   <div class="app" ref="root"> 
-    <div class="pos">
-      <div class="navbar" ref="nav">
+    <div class="nav">
         <div class="logo" ref="logo">logo</div>
-        <ul ref="ul">
-          <!-- <li><router-link to="/about">About</router-link></li> -->
-          <li><a data-page="home" href="#">Home</a></li>
-          <li><a data-page="about" href="#about">About</a></li>
-          <li><a data-page="journey" href="#journey">Journey</a></li>
-          <li><a data-page="explore" href="#explore">Explore</a></li>
-          <li><a data-page="contact" href="#contact" @click="handleClick">Contact</a></li>
-          <div ref="bubble" class="bubble"></div>
-        </ul>
-        <!-- <div class="nav__toggle" id="nav">
-
-        </div> -->
-      </div>
+        <div class="nav-menu" id="nav-menu">
+          <ul class="nav-list" ref="ul">
+            <!-- <li><router-link to="/about">About</router-link></li> -->
+            <li class="nav-link">
+              <a data-page="home" href="#">Home</a>
+              </li>
+            <li class="nav-link">
+              <a data-page="about" href="#about">About</a>
+              </li>
+            <li class="nav-link">
+              <a data-page="journey" href="#journey">Journey</a>
+              </li>
+            <li class="nav-link">
+              <a data-page="explore" href="#explore">Explore</a>
+              </li>
+            <li class="nav-link">
+              <a data-page="contact" href="#contact" @click="handleClick">Contact</a>
+              </li>
+            <div ref="bubble" class="bubble"></div>
+          </ul>
+           <span class="material-icons nav__close" id="nav-close">close</span>
+        </div>
+        <div class="nav__toggle" id="nav-toggle">
+          <span class="material-icons">menu</span>
+        </div>
     </div>
     <Home ref="home" />
     <Footer />
@@ -44,9 +55,9 @@ export default {
     const navCheck = ref(function(){})
     const bubble = ref(null)
 
-    const handleClick = () => {
-      console.log(ul, ul.value.children[5].classList)
-    }
+    // const handleClick = () => {
+    //   console.log(ul, ul.value.children[5].classList)
+    // }
 
     onMounted(() => {
       // console.log(ul.value)
@@ -57,13 +68,13 @@ export default {
 
       // HOME
       const nav = document.querySelector('.navbar')
-      const position = document.querySelector('.pos')
+      const position = document.querySelector('.nav')
       const homeSection = home.value.$el.lastChild.children[0]
       const aboutSection = home.value.$el.lastChild.children[1]
 
 
 
-      // HOME FOR BAR BACKGROUND AND ABOUT
+      // NAV
       navObserver2.value = new IntersectionObserver(function(entries){
         entries.forEach(entry => {
           if(entry.isIntersecting){      
@@ -109,20 +120,49 @@ export default {
         })
       }
 
-        // ======================= SCROLL UP ======================== 
-        function scrollUp(){
-          const scrollUp = document.getElementById('scroll-up')
-          if(this.scrollY >= 200){
-            scrollUp.classList.add('show-scroll')
-          } else {
-            scrollUp.classList.remove('show-scroll')
-          }
+      // ======================= SCROLL UP ======================== 
+      function scrollUp(){
+        const scrollUp = document.getElementById('scroll-up')
+        if(this.scrollY >= 200){
+          scrollUp.classList.add('show-scroll')
+        } else {
+          scrollUp.classList.remove('show-scroll')
         }
-        window.addEventListener('scroll', scrollUp)
+      }
+      window.addEventListener('scroll', scrollUp)
+
+
+      // ============== TOGGLE MENU =============== 
+      const navMenu = document.getElementById('nav-menu')
+      const navToggle = document.getElementById('nav-toggle')
+      const navClose = document.getElementById('nav-close')
+
+      if(navToggle){
+        navToggle.addEventListener('click', () => {
+          navMenu.classList.add('show-menu')
+        })
+      }
+
+
+      // ============== HIDE MENU =============== 
+      if(navClose){
+        navClose.addEventListener('click', () => {
+          navMenu.classList.remove('show-menu')
+        })
+      }
+
+      // ============== HIDE MENU ON MENU CLICK===============
+      const navLink = document.querySelectorAll('.nav-link')
+
+      function linkAction(){
+        navMenu.classList.remove('show-menu')
+      }
+      navLink.forEach(n => n.addEventListener('click', linkAction))
 
     })
+    
 
-    return { handleClick, ul, home, navCheck, bubble }
+    return { ul, home, navCheck, bubble }
   }
 
 }
@@ -158,13 +198,18 @@ $accent-color: #ffd400;
 }
 
 
-.pos
+.nav
 {
   position: fixed;
   z-index: 10;
   width: 100%;
   height: 10vh;
   visibility: visible;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  transition: opacity 300ms ease;
 }
 
 .add-background-nav
@@ -181,6 +226,7 @@ $accent-color: #ffd400;
   margin-top: 1.1rem;
   margin-bottom: 1.1rem;
   transition: opacity 300ms ease;
+  background: blue;
 }
 
 .logo
@@ -189,11 +235,21 @@ $accent-color: #ffd400;
   color: white;
 }
 
+.nav-menu
+{
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 7%;
+  margin-top: 1.1rem;
+  margin-bottom: 1.1rem;
+}
+
 ul
 {
   display: flex;
   justify-content: space-around;
-  width: 40%;
+  width: 100%;
 }
 
 ul li 
@@ -241,11 +297,60 @@ ul li a
   bottom: 3rem;
 }
 
+.nav__toggle
+{
+  color: white;
+  cursor: pointer;
+  margin: 0 1.9rem;
+}
+
 
 // ============================ MEDIA QUERY ================================ 
 
 // small devices 
-// @media screen and(max-width: 760px){
+@media screen and(max-width: 768px){
+  .nav-menu
+  {
+    position: fixed;
+    background-color: #0e2a2f;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100%;
+    margin-top: 0;
+    margin-right: 0;
+    box-shadow: -1px 0 4px rgb(36, 36, 36);
+    padding: 3rem;
+    transition: 400ms;
+  }
 
-// }
+  .nav-list
+  {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5rem;
+  }
+
+  .nav__close
+  {
+    color: white;
+  }
+
+  .show-menu 
+  {
+    right: 0;
+  }
+} 
+
+@media screen and(min-width: 770px){
+  .nav__close 
+  {
+    display: none;
+  }
+
+  .nav__toggle
+  {
+    display: none;
+  }
+}
 </style>
