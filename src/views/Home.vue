@@ -795,6 +795,7 @@ section {
     grid-template-areas: 
       "detail detail"
       "img-left img-right";
+    padding-top: 4rem;
   }
 
   .a-left {
@@ -839,7 +840,7 @@ section {
   .j-first-container
   {
     width: 80%;
-    padding-top: 7rem;
+    padding-top: 10rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: max-content;
@@ -865,7 +866,7 @@ section {
   .j-middle-container
   {
     grid-area: imgContainer;
-    margin-bottom: 12rem;
+    margin-bottom: 14rem;
     padding-right: 2rem;
   }
 
