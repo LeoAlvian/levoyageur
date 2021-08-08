@@ -34,7 +34,7 @@
             <h1 class="font-gr le" data-index='1'>Le Voyageur</h1>
             
             <div class="button__position">
-              <button class="button button-scale" data-index='2'>Start Traveling</button>
+              <button class="button button-scale button1" data-index='2'>Start Traveling</button>
             </div>
 
             <h1 class="travel">travel</h1>
@@ -91,7 +91,7 @@
           <div class="j-second-left-container">
             <h1>Discover Our Journey</h1>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam nam magnam praesentium, explicabo adipisci.</p>
-            <button class="button button-journey button-scale">View More</button>
+            <button class="button button-scale button-journey">View More</button>
           </div>
           <div class="j-second-right-container">
             <div class="blue-square">
@@ -179,11 +179,22 @@
 <script>
 import gsap from 'gsap'
 import { ref } from '@vue/reactivity'
+
+// SWIPER
+import {Swiper, SwiperSlide } from 'swiper/vue'
+
+// swiper style 
+import 'swiper/swiper.scss'
 // @ is an alias to /src
 
 export default {
   name: 'Home',
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
   setup(){
+
     const socials = ref([
       {name: 'linkedin', text: 'In', link: '/'},
       {name: 'facebook', text: 'Fb', link: '/'},
@@ -579,6 +590,12 @@ section {
 
 // EXPLORE ----------------------------------------------------------------------------------
 
+.header-explore h1 
+  {
+    color: white;
+    position: relative;
+  }
+
 .rectangle
 {
   position: relative;
@@ -621,16 +638,11 @@ section {
   top: .6rem;
   right: .6rem;
   color: white;
-  opacity: 0;
   display: flex;
   align-items: center;
   gap: .2rem;
 }
 
-.star-size
-{
-  
-}
 
 .bottom-rectangle-area
 {
@@ -647,33 +659,34 @@ section {
   );
   color: white;
   transition: all 400ms ease;
-  opacity: 0;
 }
 
-.location 
-{
-  
-}
 
 .area 
 {
-  
+  font-size: .9rem;
+  font-weight: 400;
+  letter-spacing: .5px;
 }
 
 .bottom-area 
 {
   display: flex;
   justify-content: space-between;
+  margin-top: 1rem;
 }
+
 
 .bottom-area .header
 {
-
+  font-size: 1.4rem;
+  font-weight: 400;
 }
 
 .bottom-area h6
 {
-  
+  font-size: .9rem;
+  font-weight: 400;
 }
 
 
@@ -700,15 +713,6 @@ section {
   align-items: center;
 }
 
-.contact-title
-{
-
-}
-
-.contact-subheading 
-{
-  
-}
 
 .email 
 {
@@ -723,11 +727,6 @@ section {
 .email:focus
 {
   outline: none;
-}
-
-.btn-subscribe 
-{
-  
 }
 
 
@@ -779,7 +778,7 @@ section {
     left: 50%;
   }
 
-  .button
+  .button1
   {
     transform: translateX(-50%);
   }
@@ -855,7 +854,7 @@ section {
     grid-area: jHeader;
     font-size: 2rem;
     font-weight: 800;
-    margin: auto;
+    width: fit-content;
   }
 
   .j-first-container h1::after
@@ -889,6 +888,8 @@ section {
   {
     grid-area: jDetail;
     height: 8rem;
+    display: flex;
+    justify-content: flex-start;
     gap: 1rem;
   }
 
@@ -903,6 +904,95 @@ section {
     width: 30%;
   }
 
+
+  // ============ PART TWO ============
+  .j-second-container
+  {
+    width: 80%;
+    padding-top: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: max-content;
+    grid-template-areas: 
+      "jDiscover jDiscover"
+      "jImg jImg"
+  }
+
+  .j-second-left-container
+  {
+    grid-area: jDiscover;
+  }
+
+  .j-second-left-container h1
+  {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 800;
+  }
+
+  .j-second-right-container
+  {
+    grid-area: jImg;
+  }
+
+  .blue-square
+  {
+    height: 18rem;
+    width: 18rem;
+  }
+
+  .journey__img
+  {
+    height: 15.8rem;
+    width: 19.5rem;
+  }
+
+
+
+  // ======================= EXPLORE ===================== 
+  .first-explore-content
+  {
+    padding: 6rem 0 0 5.2rem;
+    display: flex;
+    flex-direction: column;
+    background: red;
+  }
+
+  .header-explore
+  {
+    background: blue;
+  }
+
+  .header-explore h1 
+  {
+    font-size: 2rem;
+    width: fit-content;
+  }
+
+  .header-explore h1::after 
+  {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 3px;
+    width: 20%;
+    background-color: #ffd400;
+  }
+
+  .rectangle
+  {
+    height: 23rem;
+    width: 12rem;
+  }
+
+  .explore-img
+  {
+    width: 100%;
+    height: 100%;
+  }
+
+  
 }
 
 
@@ -912,11 +1002,9 @@ section {
 
 
 
+
 @media screen and(min-width: 780px){
-  .content-explore
-  {
-    
-  }
+
   .content-explore-flex
   {
     flex-direction: column;
@@ -1139,9 +1227,7 @@ section {
 
   .header-explore h1 
   {
-    color: white;
     font-size: 2.4rem;
-    position: relative;
   }
 
   .header-explore h1::after 
@@ -1181,6 +1267,16 @@ section {
     height: 29rem;
   }
 
+  .star
+  {
+    opacity: 0
+  }
+
+  .bottom-rectangle-area
+{
+  opacity: 0;
+}
+
   .star-size
   {
     font-size: .9rem;
@@ -1192,30 +1288,6 @@ section {
     font-size: 1.5rem;
     font-weight: 800;
     letter-spacing: 1px;
-  }
-
-  .area 
-  {
-    font-size: .9rem;
-    font-weight: 400;
-    letter-spacing: .5px;
-  }
-
-  .bottom-area 
-  {
-    margin-top: 1rem;
-  }
-
-  .bottom-area .header
-  {
-    font-size: 1.4rem;
-    font-weight: 400;
-  }
-
-  .bottom-area h6
-  {
-    font-size: .9rem;
-    font-weight: 400;
   }
 
   // ===== EXPLORE PART TWO ====== 
@@ -1323,4 +1395,7 @@ section {
     margin: 20px 0;
   }
 }
+
+
+
 </style>
