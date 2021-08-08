@@ -113,8 +113,8 @@
           <div class="content-explore">
             <div class="content-explore-flex">
               <div v-for="(place, index) in places" :key="index" :class="isOdd(index) ? 'rectangle bottom' : 'rectangle'">
-
                 <img class="explore-img" :src="`${place.img}`">
+                
                 <span class="star">
                   <span class="material-icons star-size">star</span>
                   {{ place.star }}
@@ -137,7 +137,6 @@
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
@@ -163,7 +162,7 @@
         <div class="contact-container">
           <h1 class="contact-title">Subscribe Our</h1>
           <h1 class="contact-title">Newsletter</h1>
-          <p class="contact-subheading">Fing out our newest event and get a special discount</p>
+          <p class="contact-subheading">Fing out our newest event and get a special discount.</p>
           <div>
             <input type="text" class="email" placeholder="Enter Email...">
             <button class="button button-scale btn-subscribe">Subscribe</button>
@@ -179,20 +178,10 @@
 <script>
 import gsap from 'gsap'
 import { ref } from '@vue/reactivity'
-
-// SWIPER
-import {Swiper, SwiperSlide } from 'swiper/vue'
-
-// swiper style 
-import 'swiper/swiper.scss'
 // @ is an alias to /src
 
 export default {
   name: 'Home',
-  components: {
-    Swiper,
-    SwiperSlide,
-  },
   setup(){
 
     const socials = ref([
@@ -602,19 +591,6 @@ section {
   cursor: pointer;
 }
 
-.rectangle:hover > .explore-img,
-.rectangle:hover > .bottom-rectangle-area,
-.rectangle:hover > .star 
-{
-  transform: scale(1.03)
-}
-
-.rectangle:hover > .bottom-rectangle-area,
-.rectangle:hover > .star
-{
-  opacity: 1;
-}
-
 .bottom 
 {
   align-self: flex-end;
@@ -673,7 +649,7 @@ section {
 {
   display: flex;
   justify-content: space-between;
-  margin-top: 1rem;
+  margin-top: .6rem;
 }
 
 
@@ -838,7 +814,7 @@ section {
   
   .j-first-container
   {
-    width: 80%;
+    width: 82%;
     padding-top: 10rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -908,7 +884,7 @@ section {
   // ============ PART TWO ============
   .j-second-container
   {
-    width: 80%;
+    width: 82%;
     padding-top: 4rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -952,15 +928,15 @@ section {
   // ======================= EXPLORE ===================== 
   .first-explore-content
   {
-    padding: 6rem 0 0 5.2rem;
+    padding: 5rem 0 0 4.8rem;
     display: flex;
     flex-direction: column;
-    background: red;
   }
 
   .header-explore
   {
-    background: blue;
+    grid-area: eHeader;
+    margin-bottom: 1.5rem;
   }
 
   .header-explore h1 
@@ -980,19 +956,92 @@ section {
     background-color: #ffd400;
   }
 
+  .content-explore-flex
+  {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
   .rectangle
   {
-    height: 23rem;
-    width: 12rem;
+    grid-area: eImg;
+    height: 16rem;
+    width: 10rem;
   }
+
+  .bottom 
+{
+  align-self: flex-start;
+}
 
   .explore-img
   {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    object-position: 100% 20%;
   }
 
-  
+  .location
+  {
+    font-size: 1.4rem;
+  }
+
+  .bottom-area .header
+  {
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+
+  .bottom-area h6
+  {
+    font-size: .8rem;
+    font-weight: 400;
+  }
+
+  // ============= PART TWO =========== 
+  .second-explore-content
+  {
+    visibility: hidden;
+  }
+
+
+  // ===================== CONTACT ====================
+  .contact-container 
+  {
+    margin-top: 15rem;
+    width: 100%;
+    height: 40%;
+  }
+
+  .contact-title
+  {
+    margin-left: 4rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  .contact-subheading 
+  {
+    margin: 1.5rem 0 1.5rem 4rem;
+    font-size: .9rem;
+  }
+
+  .email 
+  {
+    width: 14rem;
+    padding: .7rem;
+    margin-left: 4rem;
+  }
+
+  .btn-subscribe 
+  {
+    font-weight: 400;
+    padding: .4rem 1rem; 
+    margin: 20px 0;
+  }
 }
 
 
@@ -1261,6 +1310,19 @@ section {
     width: 15rem;
   }
 
+  .rectangle:hover > .explore-img,
+  .rectangle:hover > .bottom-rectangle-area,
+  .rectangle:hover > .star 
+  {
+    transform: scale(1.03)
+  }
+
+  .rectangle:hover > .bottom-rectangle-area,
+  .rectangle:hover > .star
+  {
+    opacity: 1;
+  }
+
   .explore-img
   {
     width: 100%;
@@ -1273,9 +1335,9 @@ section {
   }
 
   .bottom-rectangle-area
-{
-  opacity: 0;
-}
+  {
+    opacity: 0;
+  }
 
   .star-size
   {

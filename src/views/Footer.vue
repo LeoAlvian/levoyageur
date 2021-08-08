@@ -4,7 +4,7 @@
     <div class="middle-footer-container">
       <div class="footer-travel">
         <h2>Travel</h2>
-        <p>You choose the destination,<br>offer you the experience</p>
+        <p>You choose the destination,<br>we offer you the experience</p>
       </div>
       <div class="footer-about">
          <h2>About</h2>
@@ -114,5 +114,48 @@
   width: 35%;
   display: flex;
   justify-content: space-between;
+}
+
+
+
+
+// =========== MEDIA QUERY ============ 
+@media only screen and(max-width: 425px){
+  .middle-footer-container
+  {
+    height: auto;
+    margin-left: 3rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+
+  .bottom-footer-container
+  {
+    height: auto;
+    width: 100%;
+    margin-top: 4.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #455c61;
+  }
+
+  .left-bottom-footer 
+  {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+  }
+
+  .right-bottom-footer
+  {
+    width: 100%;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
 }
 </style>
