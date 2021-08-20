@@ -308,7 +308,12 @@ ul li a
 // ============================ MEDIA QUERY ================================ 
 
 // small devices 
-@media screen and(max-width: 768px){
+@media screen and(max-width: 425px){
+  .logo 
+  {
+    margin-left: 1rem;
+  }
+
   .nav-menu
   {
     position: fixed;
@@ -340,9 +345,11 @@ ul li a
   {
     right: 0;
   }
-} 
+}
 
-@media screen and(min-width: 770px){
+
+// medium devices 
+@media screen and(min-width: 768px){
   .nav__close 
   {
     display: none;
@@ -351,6 +358,18 @@ ul li a
   .nav__toggle
   {
     display: none;
+  }
+
+  .nav-menu
+  {
+    width: 60%;
+  }
+} 
+
+@media screen and(min-width: 1024px){
+  .nav-menu
+  {
+    width: 40%;
   }
 }
 </style>

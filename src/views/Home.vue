@@ -303,6 +303,7 @@ section {
 {
   height: 100vh;
   width: 100%;
+  object-fit: cover;
 }
 
 .home {
@@ -372,7 +373,7 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba($color: #ffd400, $alpha: .9);
+  background:#ffd400;
   z-index: -1;
   transition: transform 400ms ease;
 }
@@ -396,7 +397,7 @@ section {
 {
   width: 100%;
   display: flex;
-  }
+}
 
 .img
 {
@@ -716,10 +717,6 @@ section {
 
 
 @media only screen and(max-width: 425px){
-  .hero-img
-  {
-    object-fit: cover;
-  }
 
   .left
   {
@@ -730,7 +727,7 @@ section {
   .home-header
   {
     font-size: 6rem;
-    top: 25%;
+    top: 28%;
     left: 10%;
   }
 
@@ -750,7 +747,8 @@ section {
   .button__position
   {
     position: absolute;
-    top: 84%;
+    margin-top: 25px;
+    top: 76%;
     left: 50%;
   }
 
@@ -759,7 +757,7 @@ section {
     transform: translateX(-50%);
   }
 
-  // ================================ ABOUT =========================== 
+  // ======================== ABOUT =========================== 
   .about-container
   {
     flex: 5;
@@ -778,6 +776,7 @@ section {
     height: 17rem;
     width: 10rem;
   }
+
   .a-right {
     grid-area: img-right;
     height: 15rem;
@@ -935,7 +934,6 @@ section {
 
   .header-explore
   {
-    grid-area: eHeader;
     margin-bottom: 1.5rem;
   }
 
@@ -965,15 +963,14 @@ section {
 
   .rectangle
   {
-    grid-area: eImg;
     height: 16rem;
     width: 10rem;
   }
 
   .bottom 
-{
-  align-self: flex-start;
-}
+  {
+    align-self: flex-start;
+  }
 
   .explore-img
   {
@@ -1017,7 +1014,6 @@ section {
 
   .contact-title
   {
-    margin-left: 4rem;
     font-size: 1.4rem;
     font-weight: 600;
     letter-spacing: 1px;
@@ -1025,15 +1021,15 @@ section {
 
   .contact-subheading 
   {
-    margin: 1.5rem 0 1.5rem 4rem;
+    margin: 1.5rem 3rem 1.5rem 5rem;
     font-size: .9rem;
   }
 
   .email 
   {
-    width: 14rem;
+    width: 12rem;
     padding: .7rem;
-    margin-left: 4rem;
+    margin-left: 1rem;
   }
 
   .btn-subscribe 
@@ -1052,12 +1048,90 @@ section {
 
 
 
-@media screen and(min-width: 780px){
 
-  .content-explore-flex
+@media screen and(min-width: 768px){
+
+
+  // ====================== HOME ========================= 
+  .home-header
   {
+    font-size: 9rem;
+    top: 25%;
+    left: 20%;
+  }
+
+  .with
+  {
+    top: 61%;
+    left: 49%;
+  }
+
+  .le
+  {
+    font-size: 5.7rem;
+    top: 66%;
+    left: 30%;
+  }
+
+  .button__position
+  {
+    position: absolute;
+    top: 82%;
+    left: 50%;
+  }
+
+  .travel
+  {
+    position: absolute;
+    bottom: -4%;
+    right: 80;
+    color: transparent;
+    font-size: 6rem;
+    font-weight: 900;
+    -webkit-text-stroke-width: .7px;
+    -webkit-text-stroke-color: white;
+    opacity: 4%;
+    text-transform: uppercase;
+    cursor: default;
+  }
+
+
+  // ====================== ABOUT ========================= 
+
+   .about-container
+  {
+    flex: 11;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.2rem;
+    position: relative;
+  }
+
+  .a-left {
+    height: 22rem;
+    width: 14rem;
+  }
+  
+  .a-right {
+    height: 17rem;
+    width: 9rem;
+  }
+
+  .about-content
+  {
+    margin-right: 1rem;
+    margin-left: 1rem;
+    display: flex;
+    align-items: flex-start;
     flex-direction: column;
-    // gap: 0;
+    gap: 1rem;
+  }
+
+  .about-content h2 
+  {
+    font-size: 2rem;
+    font-weight: 800;
   }
 
   .about-content h1
@@ -1065,16 +1139,214 @@ section {
     display: none;
   }
 
+
+  // ====================== JOURNEY ========================= 
+
+  .j-first-container
+  {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .j-first-container h1 
+  {
+    font-size: 2rem;
+    margin-top: 5.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .j-first-container h1::after
+  {
+    left: 40%;
+  }
+
+  .j-left-img
+  {
+    left: 0;
+    bottom: -3rem;
+    height: 20rem;
+    width: 16rem;
+    z-index: 2;
+  }
+
+  .j-right-img
+  {
+    height: 21rem;
+    width: 35rem;
+  }
+
+  .j-bottom-container
+  {
+    margin-top: 5.5rem;
+  }
+
+  .j-bottom-container h2 
+  {
+    margin: .7rem 0;
+  }
+
+  // ====== JOURNEY PART TWO ====== 
+  .j-second-container
+  {
+    width: 82%;
+    padding-top: 8rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: max-content;
+    grid-template-areas: 
+      "jDiscover jDiscover"
+      "jImg jImg"
+  }
+
+  .j-second-left-container
+  {
+    grid-area: jDiscover;
+  }
+
+  .j-second-left-container h1
+  {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 800;
+  }
+
+  .j-second-right-container
+  {
+    grid-area: jImg;
+  }
+
+  .blue-square
+  {
+    height: 25rem;
+    width: 30rem;
+  }
+
+  .journey__img
+  {
+    height: calc(25rem - 2.4rem);
+    width: 38rem;
+  }
+
+  // ================= EXPLORE ========================= 
+  .first-explore-content
+  {
+    padding: 5rem 2rem 0 4.8rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header-explore
+  {
+    margin-bottom: 1.5rem;
+  }
+
+  .header-explore h1 
+  {
+    font-size: 2rem;
+    width: fit-content;
+  }
+
+  .header-explore h1::after 
+  {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 3px;
+    width: 20%;
+    background-color: #ffd400;
+  }
+
+  .content-explore-flex
+  {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .rectangle
+  {
+    height: 18rem;
+    width: 13rem;
+  }
+
+  .bottom 
+  {
+    align-self: flex-start;
+  }
+
+  .explore-img
+  {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 100% 20%;
+  }
+
+  .location
+  {
+    font-size: 1.6rem;
+  }
+
+  .area 
+  {
+    font-size: 1rem;
+  }
+
+  .bottom-area .header
+  {
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+
+  .bottom-area h6
+  {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+
+  // ============= PART TWO =========== 
   .second-explore-content
   {
     visibility: hidden;
   }
 
-  .le
+
+  // ================== CONTACT ==================
+  .contact-container 
   {
-    font-size: 12rem;
-    top: 64%;
-    left: 48.5%;
+    margin-top: 2rem;
+    width: 100%;
+    height: 40%;
+  }
+
+  .contact-title
+  {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  .contact-subheading 
+  {
+    margin: 1.5rem 3rem 1.5rem 5rem;
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+
+  .email 
+  {
+    width: 27rem;
+    padding: .7rem;
+    margin-left: 1rem;
+  }
+
+  .btn-subscribe 
+  {
+    padding: .5rem 2rem;
   }
 }
 
@@ -1088,7 +1360,8 @@ section {
 
 
 
-@media screen and(min-width: 1300px){
+
+@media screen and(min-width: 1250px){
 
   // ==================== HOME =========================== 
   .home-header
@@ -1256,7 +1529,7 @@ section {
   }
 
 
-  // ============================ EXPLORE ================================ 
+  // ================= EXPLORE ================================ 
   .explore 
   {
     height: 200vh;
