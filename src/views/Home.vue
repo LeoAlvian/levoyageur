@@ -713,11 +713,348 @@ section {
 
 
 
+@media only screen and(max-width: 375px){
+  .left
+  {
+    width: 18%;
+  }
+
+  // =========================== HOME ========================= 
+  .home-header
+  {
+    font-size: 6rem;
+    top: 28%;
+    left: 10%;
+  }
+
+  .with
+  {
+    top: 60%;
+    left: 45%;
+  }
+
+  .le
+  {
+    font-size: 4rem;
+    top: 64%;
+    left: 10%;
+  }
+
+  .button__position
+  {
+    position: absolute;
+    margin-top: 25px;
+    top: 76%;
+    left: 50%;
+  }
+
+  .button1
+  {
+    transform: translateX(-50%);
+  }
+
+  // ======================== ABOUT =========================== 
+  .about-container
+  {
+    flex: 5;
+    display: grid;
+    position: relative;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "detail detail"
+      "img-left img-right";
+    padding-top: 4rem;
+  }
+
+  .a-left {
+    grid-area: img-left;
+    height: 16rem;
+    width: 9rem;
+  }
+
+  .a-right {
+    grid-area: img-right;
+    height: 14rem;
+    width: 8rem;
+    margin-top: 1.1rem;
+  }
+
+  .about-content {
+    grid-area: detail;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    padding-right: 10px;
+  }
+
+  .about-content h2 
+  {
+    font-size: 1.8rem;
+    font-weight: 800;
+  }
+
+  .about-content h1 
+  {
+    display: none;
+  }
+
+  // ======================== JOURNEY ============================== 
+  .journey
+  {
+    align-items: flex-end;
+  }
+  
+  .j-first-container
+  {
+    width: 82%;
+    padding-top: 10rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: max-content;
+    grid-template-areas: 
+      "jHeader jHeader"
+      "jDetail jDetail"
+      "imgContainer imgContainer";
+  }
+
+  .j-first-container h1
+  {
+    grid-area: jHeader;
+    font-size: 1.8rem;
+    font-weight: 800;
+    width: fit-content;
+  }
+
+  .j-first-container h1::after
+  {
+    right: 0;
+  }
+
+  .j-middle-container
+  {
+    grid-area: imgContainer;
+    margin-bottom: 14rem;
+    padding-right: 2rem;
+  }
+
+  .j-left-img
+  {
+    left: 0;
+    bottom: -5rem;
+    height: 10rem;
+    width: 8rem;
+    z-index: 2;
+  }
+
+  .j-right-img
+  {
+    height: 10rem;
+    width: 15rem;
+  }
+
+  .j-bottom-container
+  {
+    grid-area: jDetail;
+    height: 8rem;
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+
+  .j-bottom-container h2 
+  {
+    font-size: 1.4rem;
+  }
+
+  .j-bottom-container h5 
+  {
+    font-weight: 400;
+  }
+
+  .j-bottom-left-container,
+  .j-bottom-right-container
+  {
+    width: 30%;
+  }
+
+
+  // ============ PART TWO ============
+  .j-second-container
+  {
+    width: 82%;
+    padding-top: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: max-content;
+    grid-template-areas: 
+      "jDiscover jDiscover"
+      "jImg jImg"
+  }
+
+  .j-second-left-container
+  {
+    grid-area: jDiscover;
+  }
+
+  .j-second-left-container h1
+  {
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    font-weight: 800;
+  }
+
+  .j-second-right-container
+  {
+    grid-area: jImg;
+  }
+
+  .blue-square
+  {
+    height: 17rem;
+    width: 16rem;
+  }
+
+  .journey__img
+  {
+    height: 14.8rem;
+    width: 17.5rem;
+  }
 
 
 
-@media only screen and(max-width: 425px){
+  // ======================= EXPLORE ===================== 
+  .first-explore-content
+  {
+    padding: 5rem 0 0 4.8rem;
+    display: flex;
+    flex-direction: column;
+  }
 
+  .header-explore
+  {
+    margin-bottom: 1.5rem;
+  }
+
+  .header-explore h1 
+  {
+    font-size: 1.8rem;
+    width: fit-content;
+  }
+
+  .header-explore h1::after 
+  {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 3px;
+    width: 20%;
+    background-color: #ffd400;
+  }
+
+  .content-explore-flex
+  {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .rectangle
+  {
+    height: 14rem;
+    width: 8rem;
+  }
+
+  .bottom 
+  {
+    align-self: flex-start;
+  }
+
+  .bottom-rectangle-area
+  {
+    padding: .5rem;
+  }
+
+  .explore-img
+  {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 100% 20%;
+  }
+
+  .location
+  {
+    font-size: 1.4rem;
+  }
+
+  .bottom-area .header
+  {
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+
+  .bottom-area h6
+  {
+    font-size: .8rem;
+    font-weight: 400;
+  }
+
+  // ============= PART TWO =========== 
+  .second-explore-content
+  {
+    visibility: hidden;
+  }
+
+
+  // ===================== CONTACT ====================
+  .contact-container 
+  {
+    margin-top: 15rem;
+    width: 100%;
+    height: 40%;
+  }
+
+  .contact-title
+  {
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  .contact-subheading 
+  {
+    margin: 1.5rem 3rem 1.5rem 5rem;
+    font-size: .9rem;
+  }
+
+  .email 
+  {
+    width: 10rem;
+    padding: .7rem;
+    margin-left: 1rem;
+  }
+
+  .btn-subscribe 
+  {
+    font-weight: 400;
+    padding: .4rem .5rem; 
+    margin: 20px 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+@media only screen and(min-width: 425px){
   .left
   {
     width: 18%;
@@ -972,6 +1309,11 @@ section {
     align-self: flex-start;
   }
 
+  .bottom-rectangle-area
+  {
+    padding: 1rem;
+  }
+
   .explore-img
   {
     width: 100%;
@@ -1038,6 +1380,7 @@ section {
     padding: .4rem 1rem; 
     margin: 20px 0;
   }
+  
 }
 
 
@@ -1050,7 +1393,10 @@ section {
 
 
 @media screen and(min-width: 768px){
-
+  .left
+  {
+    width: 8.3%;
+  }
 
   // ====================== HOME ========================= 
   .home-header
@@ -1144,7 +1490,7 @@ section {
 
   .j-first-container
   {
-    width: 80%;
+    width: 90%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -1153,7 +1499,6 @@ section {
   .j-first-container h1 
   {
     font-size: 2rem;
-    margin-top: 5.5rem;
     margin-bottom: 1.5rem;
   }
 
@@ -1177,9 +1522,10 @@ section {
     width: 35rem;
   }
 
-  .j-bottom-container
+  .j-middle-container 
   {
-    margin-top: 5.5rem;
+    margin-bottom: 4rem;
+    padding-right: 2rem;
   }
 
   .j-bottom-container h2 
@@ -1190,7 +1536,7 @@ section {
   // ====== JOURNEY PART TWO ====== 
   .j-second-container
   {
-    width: 82%;
+    width: 90%;
     padding-top: 8rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1346,7 +1692,7 @@ section {
 
   .btn-subscribe 
   {
-    padding: .5rem 2rem;
+    padding: .4rem 2rem;
   }
 }
 
@@ -1361,7 +1707,7 @@ section {
 
 
 
-@media screen and(min-width: 1250px){
+@media screen and(min-width: 1024px){
 
   // ==================== HOME =========================== 
   .home-header
@@ -1453,17 +1799,16 @@ section {
   // =========================== JOURNEY ============================= 
   .j-first-container
   {
-    flex: 2;
-    width: 55%;
+    width: 92%;
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding-top: 5rem;
   }
 
   .j-first-container h1 
   {
     font-size: 2.4rem;
-    margin-top: 3.5rem;
     margin-bottom: 1.5rem;
   }
 
@@ -1472,19 +1817,25 @@ section {
     left: 40%;
   }
 
+  .j-middle-container
+  {
+    margin-bottom: 2rem;
+    padding-right: 2rem;
+  }
+
   .j-left-img
   {
     left: 0;
-    bottom: -3rem;
-    height: 20rem;
-    width: 16rem;
+    bottom: -4rem;
+    height: 24rem;
+    width: 20rem;
     z-index: 2;
   }
 
   .j-right-img
   {
-    height: 21rem;
-    width: 35rem;
+    height: 26rem;
+    width: 50rem;
   }
 
   .j-bottom-container
