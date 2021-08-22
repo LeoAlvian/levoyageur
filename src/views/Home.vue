@@ -1507,6 +1507,12 @@ section {
     left: 40%;
   }
 
+  .j-middle-container 
+  {
+    margin-bottom: 4rem;
+    padding-right: 2rem;
+  }
+
   .j-left-img
   {
     left: 0;
@@ -1520,12 +1526,6 @@ section {
   {
     height: 21rem;
     width: 35rem;
-  }
-
-  .j-middle-container 
-  {
-    margin-bottom: 4rem;
-    padding-right: 2rem;
   }
 
   .j-bottom-container h2 
@@ -1835,7 +1835,7 @@ section {
   .j-right-img
   {
     height: 26rem;
-    width: 50rem;
+    width: 49rem;
   }
 
   .j-bottom-container
@@ -1853,10 +1853,7 @@ section {
   // ====== JOURNEY PART TWO ====== 
   .j-second-container
   {
-    height: 100vh;
     display: flex;
-    align-items: center;
-    margin: 110px 0;
     align-items: center;
   }
 
@@ -1876,7 +1873,7 @@ section {
   .journey__img
   {
     height: calc(30rem - 2.4rem);
-    width: 36rem;
+    width: 28rem;
   }
 
 
@@ -1917,7 +1914,7 @@ section {
   .content-explore
   {
     align-self: center;
-    width: 84%;
+    width: 100%;
   }
 
   .content-explore-flex
@@ -1931,7 +1928,7 @@ section {
   .rectangle
   {
     height: 29rem;
-    width: 15rem;
+    width: 10rem;
   }
 
   .rectangle:hover > .explore-img,
@@ -1974,6 +1971,11 @@ section {
     font-size: 1.5rem;
     font-weight: 800;
     letter-spacing: 1px;
+  }
+
+  .bottom-area h6
+  {
+    font-size: .9rem;
   }
 
   // ===== EXPLORE PART TWO ====== 
@@ -2059,7 +2061,7 @@ section {
   .contact-container 
   {
     height: 40vh;
-    width: 60%;
+    width: 80%;
   }
 
   .contact-title
@@ -2079,6 +2081,81 @@ section {
     font-weight: 600;
     padding: .4rem 1rem; 
     margin: 20px 0;
+  }
+}
+
+
+
+
+@media screen and(min-width: 1250px ){
+  // ==================== JOURNEY ================ 
+  .j-middle-container 
+  {
+    width: 70%;
+  }
+
+  .j-left-img
+  {
+    height: 20rem;
+    width: 16rem;
+  }
+
+  .j-right-img
+  {
+    height: 23rem;
+    width: 40rem;
+  }
+
+  .j-bottom-container
+  {
+    margin-top: 1rem;
+  }
+
+
+  // ================== PART TWO ================ 
+  .j-second-left-container
+  {
+    padding-right: 0;
+  }
+  
+  .blue-square
+  {
+    height: 25rem;
+    width: 30rem;
+  }
+
+  .journey__img
+  {
+    height: calc(25rem - 2.4rem);
+    width: 36rem;
+  }
+
+
+  // =============== EXPLORE ============================== 
+  .first-explore-content
+  {
+    padding: 0;
+  }
+  
+  .content-explore
+  {
+    width: 82%;
+  }
+
+  .content-explore-flex
+  {
+    justify-content: center;
+  }
+
+  .bottom 
+  {
+    align-self: flex-end;
+  }
+
+  .rectangle
+  {
+    height: 29rem;
+    width: 12.5rem;
   }
 }
 
