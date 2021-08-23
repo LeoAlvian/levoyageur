@@ -409,18 +409,6 @@ section {
   transform: scale(1.03);
 }
 
-.a-left
-{
-  height: 32rem;
-  width: 17rem;
-}
-
-.a-right
-{
-  height: 25rem;
-  width: 14rem;
-}
-
 .about-content
   {
     color: white;
@@ -2087,7 +2075,20 @@ section {
 
 
 
-@media screen and(min-width: 1250px ){
+@media screen and(min-width: 1200px ){
+  // ===================== ABOUT =================== 
+  .a-left
+  {
+    height: 32rem;
+    width: 17rem;
+  }
+
+  .a-right
+  {
+    height: 25rem;
+    width: 14rem;
+  }
+
   // ==================== JOURNEY ================ 
   .j-middle-container 
   {
@@ -2156,6 +2157,25 @@ section {
   {
     height: 29rem;
     width: 12.5rem;
+  }
+
+
+   // ======================= CONTACT ======================= 
+   .contact-container 
+  {
+    width: 70%;
+  }
+}
+
+
+
+
+
+  @media screen and(min-width: 1350px ){
+    // ==================== JOURNEY ================ 
+  .j-middle-container 
+  {
+    width: 60%;
   }
 }
 
