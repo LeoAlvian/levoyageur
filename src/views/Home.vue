@@ -5,11 +5,11 @@
       <div class="left-top"></div>
       <div class="left-bottom">
         <transition-group 
-        appear 
-        tag='ul'
-        @before-enter='sideBeforeEnter'
-        @enter='sideEnter'
-        >
+          appear
+          tag="ul"
+          @before-enter="beforeEnter"
+          @enter="enter"
+        >     
           <li v-for="(social, index) in socials" :key="social.name" :data-index='index'>
             <a href="">{{ social.text }}</a>
           </li>
@@ -27,17 +27,48 @@
         <div class="float">
           <div class="left-content"></div>
           <div class="middle">
-            <h1 class="font-gr home-header">Explore</h1>
+            <transition
+              appear 
+              @before-enter="homeBeforeEnter"
+              @enter="homeEnter"
+            >
+              <h1 class="font-gr home-header">Explore</h1>
+            </transition>
             
-            <span class="with">With</span>
-            
-            <h1 class="font-gr le" data-index='1'>Le Voyageur</h1>
-            
-            <div class="button__position">
-              <button class="button button-scale button1" data-index='2'>Start Traveling</button>
-            </div>
+            <transition
+              appear 
+              @before-enter="homeBeforeEnter"
+              @enter="homeEnter"
+            >
+              <span class="with">With</span>
+            </transition>
 
-            <h1 class="travel">travel</h1>
+            <transition
+              appear 
+              @before-enter="homeBeforeEnter"
+              @enter="homeEnter"
+            >
+              <h1 class="font-gr le" data-index='1'>Le Voyageur</h1>
+            </transition>
+
+            <transition
+              appear 
+              @before-enter="homeBeforeEnter"
+              @enter="homeEnter"
+            >
+              <div class="button__position">
+                <button class="button button-scale button1" data-index='2'>Start Traveling</button>
+              </div>
+            </transition>
+            
+
+            <transition
+              appear 
+              @before-enter="homeBeforeEnter"
+              @enter="travelEnter"
+            >
+              <h1 class="travel">travel</h1>
+            </transition>
           </div>
         </div>
       </section>
@@ -49,17 +80,35 @@
       <section class="about" id="about">
         <div class="left-content"></div>
         <div class="about-container">
+          <transition
+            appear 
+            @before-enter="aboutImgBeforeEnter"
+            @enter="aboutEnter"
+          >
+            <img class="img a-left" :src="`./img/about1.jpg`">
+          </transition>
           
-          <img class="img a-left" :src="`./img/about1.jpg`">
+          <transition
+            appear 
+            name="scale"
+            @before-enter="aboutImgBeforeEnter"
+            @enter="aboutImgEnter"
+          >
+            <img class="img a-right" :src="`./img/about2.jpg`">
+          </transition>
           
-          <img class="img a-right" :src="`./img/about2.jpg`">
-          
-          <div class="about-content">
-            <h2>Le Voyageur</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero placeat, repudiandae facere reprehenderit maxime at commodi quo cum laboriosam? Soluta!</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero placeat, repudiandae facere reprehenderit maxime at commodi quo cum laboriosam? Soluta!</p>
-            <h1>about</h1>
-          </div>
+          <transition
+            appear 
+            @before-enter="aboutBeforeEnter"
+            @enter="aboutEnter"
+          >
+            <div class="about-content">
+              <h2>Le Voyageur</h2>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero placeat, repudiandae facere reprehenderit maxime at commodi quo cum laboriosam? Soluta!</p>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero placeat, repudiandae facere reprehenderit maxime at commodi quo cum laboriosam? Soluta!</p>
+              <h1>about</h1>
+            </div>
+          </transition>
         </div>
       </section>
 
@@ -217,16 +266,72 @@ export default {
 
     // TRANSITION!!! 
 
-    // EXPLORE 
-    const sideBeforeEnter = (el) => {
+    // SIDE SOCIAL 
+    const beforeEnter = (el) => {
       el.style.opacity = 0
       el.style.transform = 'translateY(-80px)'
     }
-    const sideEnter = (el, done) => {
+    const enter = (el, done) => {
       gsap.to(el, {
         opacity: 1,
         y: 0,
         duration: 0.8,
+        onComplete: done,
+        delay: 0.5 + el.dataset.index * 0.2,
+      })
+    }
+
+    // HOME 
+    const homeBeforeEnter = (el) => {
+      el.style.opacity = 0
+      el.style.transform = 'translateY(-80px)'
+    }
+
+    const homeEnter = (el, done) => {
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        onComplete: done,
+      })
+    }
+
+    const travelEnter = (el, done) => {
+      gsap.to(el, {
+        opacity: 0.04,
+        y: 0,
+        duration: 1,
+        onComplete: done,
+        delay: 0.5
+      })
+    }
+
+
+    // ABOUT 
+    const aboutBeforeEnter = (el) => {
+      el.style.opacity = 0
+      el.style.transform = 'translateX(80px)'
+    }
+
+    const aboutEnter = (el) => {
+      gsap.to(el, {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+      })
+    }
+
+    const aboutImgBeforeEnter = (el) => {
+      el.style.opacity = 0
+      el.style.transform = 'translateX(-80px)'
+    }
+
+    const aboutImgEnter = (el) => {
+      gsap.to(el, {
+        opacity: 1,
+        x: 0,
+        duration: 0.9,
+        delay: 0.4,
       })
     }
 
@@ -234,7 +339,9 @@ export default {
     return { 
       socials, calendar, places,
       isOdd,
-      sideBeforeEnter, sideEnter
+      beforeEnter, enter,
+      homeBeforeEnter, homeEnter, travelEnter,
+      aboutBeforeEnter, aboutEnter, aboutImgBeforeEnter, aboutImgEnter,
      }
   },
 }
@@ -406,6 +513,14 @@ section {
 
 .img:hover
 {
+  transform: scale(1.03);
+}
+
+.scale {
+  transition: transform .4s ease;
+}
+
+.scale:hover {
   transform: scale(1.03);
 }
 
@@ -2173,9 +2288,20 @@ section {
 
   @media screen and(min-width: 1350px ){
     // ==================== JOURNEY ================ 
+  .j-first-container
+  {
+    padding-top: 4rem;
+  }
+
   .j-middle-container 
   {
-    width: 60%;
+    width: 70%;
+  }
+
+  // =================== EXPLORE ===================== 
+  .content-explore
+  {
+    width: 85%;
   }
 }
 

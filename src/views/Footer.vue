@@ -2,33 +2,33 @@
   <div class="footer">
     <div class="top-footer-container"></div>
     <div class="middle-footer-container">
-      <div class="footer-travel">
+      <div v-scrollanimation="'footer'" class="footer-travel">
         <h2>Travel</h2>
         <p>You choose the destination,<br>we offer you the experience</p>
       </div>
-      <div class="footer-about">
+      <div v-scrollanimation="'footer'" class="footer-about" >
          <h2>About</h2>
         <div class="info"><a href="">About us</a></div>
         <div class="info"><a href="">News & Blog</a></div>
       </div>
-      <div class="footer-company">
+      <div v-scrollanimation="'footer'" class="footer-company">
         <h2>Company</h2>
         <div class="info"><a href="">Team</a></div>
         <div class="info"><a href="">Plan & Pricing</a></div>
       </div>
-      <div class="footer-support">
+      <div v-scrollanimation="'footer'" class="footer-support">
         <h2>Support</h2>
         <div class="info"><a href="">FAQs</a></div>
         <div class="info"><a href="">Contact Us</a></div>
       </div>
     </div>
     <div class="bottom-footer-container">
-      <div class="left-bottom-footer">
+      <div v-scrollanimation="'footer'" class="left-bottom-footer">
         <a href="">&#169; 2019 All rights reserved</a>
       </div>
       <div class="right-bottom-footer">
-        <a href="">Terms & agreements</a>
-        <a href="">Privacy Policy</a>
+        <a v-scrollanimation="'footer'" class="term" href="">Terms & agreements</a>
+        <a v-scrollanimation="'footer'" class="privacy" href="">Privacy Policy</a>
       </div>
     </div>
   </div>
@@ -44,6 +44,7 @@
   align-items: center;
   background: #091e21;
   color: white;
+  overflow: hidden;
 }
 .top-footer-container
 {
@@ -117,8 +118,6 @@
 }
 
 
-
-
 // =========== MEDIA QUERY ============ 
 @media only screen and(max-width: 425px){
   .middle-footer-container
@@ -157,5 +156,51 @@
     gap: 2rem;
     margin-bottom: 3rem;
   }
+}
+
+
+
+.before-enter-footer
+{
+  opacity: 0;
+  transform: translateY(-80px);
+  transition: all 1.2s ease-out;
+}
+
+.enter-footer
+{
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+
+.footer-about
+{
+  transition-delay: .1s;
+}
+
+.footer-company 
+{
+  transition-delay: .3s;
+}
+
+.footer-support 
+{
+  transition-delay: .5s;
+}
+
+.left-bottom-footer 
+{
+  transition-delay: .6s;
+}
+
+.term
+{
+  transition-delay: .8s;
+}
+
+.privacy
+{
+  transition-delay: 1s;
 }
 </style>
