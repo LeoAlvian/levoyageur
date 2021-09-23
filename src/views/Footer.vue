@@ -7,7 +7,7 @@
         <p>You choose the destination,<br>we offer you the experience</p>
       </div>
       <div v-scrollanimation="'footer'" class="footer-about" >
-         <h2>About</h2>
+        <h2>About</h2>
         <div class="info"><a href="">About us</a></div>
         <div class="info"><a href="">News & Blog</a></div>
       </div>
@@ -68,17 +68,22 @@
 
 .middle-footer-container p 
 {
-  font-size: .95rem;
+  font-size: .9rem;
   letter-spacing: .5px;
   margin: .6rem 0;
 }
 
 .middle-footer-container a 
 {
-  font-size: .95rem;
+  font-size: .9rem;
   letter-spacing: .5px;
   text-decoration: none;
   color: white;
+}
+
+.middle-footer-container a:hover 
+{
+  color: #ffd400;
 }
 
 .info 

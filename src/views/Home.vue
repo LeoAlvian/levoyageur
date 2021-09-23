@@ -16,7 +16,7 @@
         </transition-group>
       </div>
     </div>
-    <div>
+    <div class="container">
 
 
       <!-- HOME  -->
@@ -27,48 +27,16 @@
         <div class="float">
           <div class="left-content"></div>
           <div class="middle">
-            <transition
-              appear 
-              @before-enter="homeBeforeEnter"
-              @enter="homeEnter"
-            >
-              <h1 class="font-gr home-header">Explore</h1>
-            </transition>
+            <h1 v-scrollanimation="'home'" class="font-gr home-header">Explore</h1>            
+            <span v-scrollanimation="'home'" class="with with-delay">With</span>
+            <h1 v-scrollanimation="'home'" class="font-gr le le-delay" data-index='1'>Le Voyageur</h1>
+
+            <div v-scrollanimation="'home'" class="button__position button-delay">
+              <button class="button button-scale button1" data-index='2'>Start Traveling</button>
+            </div>
             
-            <transition
-              appear 
-              @before-enter="homeBeforeEnter"
-              @enter="homeEnter"
-            >
-              <span class="with">With</span>
-            </transition>
+            <h1 v-scrollanimation="'travel'" class="travel travel-delay">travel</h1>
 
-            <transition
-              appear 
-              @before-enter="homeBeforeEnter"
-              @enter="homeEnter"
-            >
-              <h1 class="font-gr le" data-index='1'>Le Voyageur</h1>
-            </transition>
-
-            <transition
-              appear 
-              @before-enter="homeBeforeEnter"
-              @enter="homeEnter"
-            >
-              <div class="button__position">
-                <button class="button button-scale button1" data-index='2'>Start Traveling</button>
-              </div>
-            </transition>
-            
-
-            <transition
-              appear 
-              @before-enter="homeBeforeEnter"
-              @enter="travelEnter"
-            >
-              <h1 class="travel">travel</h1>
-            </transition>
           </div>
         </div>
       </section>
@@ -80,35 +48,16 @@
       <section class="about" id="about">
         <div class="left-content"></div>
         <div class="about-container">
-          <transition
-            appear 
-            @before-enter="aboutImgBeforeEnter"
-            @enter="aboutEnter"
-          >
-            <img class="img a-left" :src="`./img/about1.jpg`">
-          </transition>
+          <img v-scrollanimation="'aboutImage'" class="img a-left" :src="`./img/about1.jpg`">
           
-          <transition
-            appear 
-            name="scale"
-            @before-enter="aboutImgBeforeEnter"
-            @enter="aboutImgEnter"
-          >
-            <img class="img a-right" :src="`./img/about2.jpg`">
-          </transition>
-          
-          <transition
-            appear 
-            @before-enter="aboutBeforeEnter"
-            @enter="aboutEnter"
-          >
-            <div class="about-content">
-              <h2>Le Voyageur</h2>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero placeat, repudiandae facere reprehenderit maxime at commodi quo cum laboriosam? Soluta!</p>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero placeat, repudiandae facere reprehenderit maxime at commodi quo cum laboriosam? Soluta!</p>
-              <h1>about</h1>
-            </div>
-          </transition>
+          <img v-scrollanimation="'aboutImage'" class="img a-right" :src="`./img/about2.jpg`">
+
+          <div v-scrollanimation="'about'" class="about-content">
+            <h2>Le Voyageur</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero placeat, repudiandae facere reprehenderit maxime at commodi quo cum laboriosam? Soluta!</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero placeat, repudiandae facere reprehenderit maxime at commodi quo cum laboriosam? Soluta!</p>
+            <h1>about</h1>
+          </div>
         </div>
       </section>
 
@@ -119,12 +68,12 @@
       <section class="journey" id="journey">
         <!-- first page  -->
         <div class="j-first-container">
-          <h1>Our Experiences</h1>
+          <h1 v-scrollanimation="'journey'">Our Experiences</h1>
           <div class="j-middle-container">
-            <img class="img j-left-img" :src="`./img/experience1.jpg`">
-            <img class="img j-right-img" :src="`./img/experience2.jpg`">
+            <img v-scrollanimation="'journeyImage'" class="img j-left-img" :src="`./img/experience1.jpg`">
+            <img v-scrollanimation="'journeyImageRight'" class="img j-right-img" :src="`./img/experience2.jpg`">
           </div>
-          <div class="j-bottom-container">
+          <div v-scrollanimation="'journey'" class="j-bottom-container">
             <div class="j-bottom-left-container">
               <h2>5</h2>
               <h5>Years of Experience</h5>
@@ -136,13 +85,13 @@
           </div>
         </div>
         <!-- second page  -->
-        <div class="j-second-container">
-          <div class="j-second-left-container">
+        <div  class="j-second-container">
+          <div v-scrollanimation="'journeyTwo'" class="j-second-left-container">
             <h1>Discover Our Journey</h1>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam nam magnam praesentium, explicabo adipisci.</p>
             <button class="button button-scale button-journey">View More</button>
           </div>
-          <div class="j-second-right-container">
+          <div v-scrollanimation="'journeyTwoImage'" class="j-second-right-container">
             <div class="blue-square">
               <img class="img journey__img" :src="`./img/journey.jpg`" alt="">
             </div>
@@ -157,11 +106,11 @@
       <section class="explore" id="explore">
         <div class="first-explore-content">
           <div class="header-explore">
-            <h1>Choose Your Places</h1>
+            <h1 v-scrollanimation="'exploreTopDown'">Choose Your Places</h1>
           </div>
           <div class="content-explore">
             <div class="content-explore-flex">
-              <div v-for="(place, index) in places" :key="index" :class="isOdd(index) ? 'rectangle bottom' : 'rectangle'">
+              <div v-scrollanimation="'exploreFade'" v-for="(place, index) in places" :key="index" :class="isOdd(index) ? 'rectangle bottom' : 'rectangle'">
                 <img class="explore-img" :src="`${place.img}`">
                 
                 <span class="star">
@@ -192,9 +141,15 @@
         </div>
         <!-- PART TWO  -->
         <div class="second-explore-content">
-          <h1>Our Awesome Tours</h1>
+          <h1 v-scrollanimation="'exploreLeftRight'">Our Awesome Tours</h1>
           <div class="calendar">
-            <div class="tour-card" v-for="(act, index) in calendar" :key="index">
+            <div
+              v-scrollanimation="'exploreLeftRight'"
+              :class="`tour-card card-${index}`"
+              v-for="(act, index) in calendar"
+              :key="index"
+              :data-index = "index"
+              >
               <h2 class="date">{{ act.date }}</h2>
               <h3 class="month">{{ act.month }} <br> {{ act.year }}</h3>
               <button class="button button-scale btn-explore">{{ act.activity }}</button><br>
@@ -208,11 +163,11 @@
       <!-- CONTACT  -->
 
       <section class="contact" id="contact">
-        <div class="contact-container">
-          <h1 class="contact-title">Subscribe Our</h1>
-          <h1 class="contact-title">Newsletter</h1>
-          <p class="contact-subheading">Fing out our newest event and get a special discount.</p>
-          <div>
+        <div v-scrollanimation="'contactOpacity'" class="contact-container">
+          <h1 v-scrollanimation="'contactRightLeft'" class="contact-title contact-delay">Subscribe Our</h1>
+          <h1 v-scrollanimation="'contactRightLeft'" class="contact-title contact-delay">Newsletter</h1>
+          <p v-scrollanimation="'contactRightLeft'" class="contact-subheading contact-delay">Fing out our newest event and get a special discount.</p>
+          <div v-scrollanimation="'contactLeftRight'" class="contact-delay">
             <input type="text" class="email" placeholder="Enter Email...">
             <button class="button button-scale btn-subscribe">Subscribe</button>
           </div>
@@ -282,12 +237,12 @@ export default {
     }
 
     // HOME 
-    const homeBeforeEnter = (el) => {
+    const exploreBeforeEnter = (el) => {
       el.style.opacity = 0
       el.style.transform = 'translateY(-80px)'
     }
 
-    const homeEnter = (el, done) => {
+    const exploreEnter = (el, done) => {
       gsap.to(el, {
         opacity: 1,
         y: 0,
@@ -296,52 +251,12 @@ export default {
       })
     }
 
-    const travelEnter = (el, done) => {
-      gsap.to(el, {
-        opacity: 0.04,
-        y: 0,
-        duration: 1,
-        onComplete: done,
-        delay: 0.5
-      })
-    }
-
-
-    // ABOUT 
-    const aboutBeforeEnter = (el) => {
-      el.style.opacity = 0
-      el.style.transform = 'translateX(80px)'
-    }
-
-    const aboutEnter = (el) => {
-      gsap.to(el, {
-        opacity: 1,
-        x: 0,
-        duration: 1,
-      })
-    }
-
-    const aboutImgBeforeEnter = (el) => {
-      el.style.opacity = 0
-      el.style.transform = 'translateX(-80px)'
-    }
-
-    const aboutImgEnter = (el) => {
-      gsap.to(el, {
-        opacity: 1,
-        x: 0,
-        duration: 0.9,
-        delay: 0.4,
-      })
-    }
-
   
     return { 
       socials, calendar, places,
       isOdd,
       beforeEnter, enter,
-      homeBeforeEnter, homeEnter, travelEnter,
-      aboutBeforeEnter, aboutEnter, aboutImgBeforeEnter, aboutImgEnter,
+      exploreBeforeEnter, exploreEnter
      }
   },
 }
@@ -354,10 +269,18 @@ export default {
   font-family: gr;
 }
 
+// .container
+// {
+//   scroll-snap-type: y proximity;
+//   overflow-y: scroll;
+//   height: 400vh;
+// }
+
 section {
   height: 100vh;
   width: 100%;
   background: #091e21;
+  // scroll-snap-align: start;
 }
 
 // ----------------------------- LEFT SIDE ------------------------------------- 
@@ -2306,5 +2229,309 @@ section {
 }
 
 
+// ================== TRANSITION ====================
+
+// ================== Home Transition ===============
+.before-enter 
+{
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 1s ease-out;
+}
+
+.enter 
+{
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+
+.before-enter-home
+{
+  opacity: 0;
+  transform: translateY(-80px);
+  transition: all 1s ease-in-out;
+}
+
+.enter-home
+{
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.before-enter-travel
+{
+  opacity: 0;
+  transform: translateY(-80px);
+  transition: all 1s ease-in-out;
+}
+
+.enter-travel
+{
+  opacity: 0.04;
+  transform: translateY(0px);
+}
+
+.with-delay
+{
+  transition-delay: .1s;
+}
+
+.le-delay
+{
+  transition-delay: .2s;
+}
+
+.button-delay
+{
+  transition-delay: .3s;
+}
+
+.travel-delay
+{
+  transition-delay: .3s;
+}
+
+
+// ===================== About Transition ==============
+.before-enter-aboutImage
+{
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: all 1s ease-in-out;
+}
+
+.enter-aboutImage
+{
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.a-right 
+{
+  transition-delay: .1s;
+}
+
+.before-enter-about
+{
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 1s ease-in-out;
+}
+
+.enter-about
+{
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+
+// =================== Journey Transition ================== 
+.before-enter-journey
+{
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: all 1s ease-in-out;
+}
+
+.enter-journey
+{
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.before-enter-journeyImage
+{
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 1s ease-in-out;
+}
+
+.enter-journeyImage
+{
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.before-enter-journeyImageRight
+{
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 1s ease-in-out;
+}
+
+.enter-journeyImageRight
+{
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+// ================= Part Two =================== 
+
+.before-enter-journeyTwo
+{
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 1s ease-in-out;
+}
+
+.enter-journeyTwo
+{
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+
+.before-enter-journeyTwoImage
+{
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 1s ease-in-out;
+}
+
+.enter-journeyTwoImage
+{
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+
+// ==================== Explore =================
+.before-enter-exploreTopDown
+{
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: all 1s ease-in-out;
+}
+
+.enter-exploreTopDown
+{
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+
+.before-enter-exploreFade
+{
+  opacity: 0;
+  transition: all 1s ease-in-out;
+}
+
+.enter-exploreFade
+{
+  opacity: 1;
+}
+
+// ================ Explore Part Two ==============
+.before-enter-exploreLeftRight
+{
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 1s ease-in-out;
+}
+
+.enter-exploreLeftRight
+{
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.before-enter-exploreGrid
+{
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: all 1s ease-in-out;
+}
+
+.enter-exploreGrid
+{
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.card-0
+{
+  transition-delay: .8s;
+}
+
+.card-1
+{
+  transition-delay: .6s;
+}
+
+.card-2
+{
+  transition-delay: .4s;
+}
+
+.card-3
+{
+  transition-delay: .2s;
+}
+
+.card-5
+{
+  transition-delay: .8s;
+}
+
+.card-6
+{
+  transition-delay: .6s;
+}
+
+.card-7
+{
+  transition-delay: .4s;
+}
+
+.card-8
+{
+  transition-delay: .2s;
+}
+
+
+
+// ====================== Contact =================
+.before-enter-contactOpacity
+{
+  opacity: 0;
+  transition: all 1s ease-in-out;
+}
+
+.enter-contactOpacity
+{
+  opacity: 1;
+}
+
+.before-enter-contactRightLeft
+{
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 1s ease-in-out;
+}
+
+.enter-contactRightLeft
+{
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.before-enter-contactLeftRight
+{
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 1s ease-in-out;
+}
+
+.enter-contactLeftRight
+{
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.contact-delay
+{
+  transition-delay: .4s;
+}
 
 </style>

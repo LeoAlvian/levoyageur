@@ -1,5 +1,5 @@
 <template>
-  <div class="app" ref="root"> 
+  <div class="app" ref="root" id="app"> 
     <div class="nav">
         <div class="logo" ref="logo">logo</div>
         <div class="nav-menu" id="nav-menu">
@@ -55,6 +55,7 @@ export default {
     const navCheck = ref(function(){})
     const bubble = ref(null)
 
+    
     // const handleClick = () => {
     //   console.log(ul, ul.value.children[5].classList)
     // }
