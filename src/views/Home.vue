@@ -11,7 +11,7 @@
           @enter="enter"
         >     
           <li v-for="(social, index) in socials" :key="social.name" :data-index='index'>
-            <a href="">{{ social.text }}</a>
+            <a :href="`${social.link}`" target="_blank">{{ social.text }}</a>
           </li>
         </transition-group>
       </div>
@@ -189,7 +189,7 @@ export default {
   setup(){
 
     const socials = ref([
-      {name: 'linkedin', text: 'In', link: '/'},
+      {name: 'instagram', text: 'In', link: 'https://www.instagram.com/l__alvian/'},
       {name: 'facebook', text: 'Fb', link: '/'},
       {name: 'youtube', text: 'Yt', link: '/'},
     ])
